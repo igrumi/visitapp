@@ -1,4 +1,3 @@
-# __Node.js web skeleton made by Miguel (MHP24)__
 
 ## Instructions
 
