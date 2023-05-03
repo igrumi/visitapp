@@ -1,0 +1,55 @@
+body{
+    background-color: #ffb514;
+}
+
+/*manu var*/
+
+.MenuVar{
+    background-color: #ffde59;
+    display: flex;
+    position: relative;
+}
+
+.MenuVar button{
+    margin-right: 15px;
+    background-color: #ffde59;
+    border-width: 0px;
+}
+
+.MenuVar img{
+    height: 30px;
+    width: 30px;
+}
+
+/*general*/
+.center{
+    background-color: white;
+    margin: auto;
+    width: 75%;
+    border-radius: 30px;
+    position: absolute;
+    top: 40%;
+    left: 15%;
+}
+
+.center a{
+    margin-left: 15%;
+    margin-right: auto;
+}
+
+.center :first-child{
+    margin-top: 15px;
+}
+
+.center :last-child{
+    margin-bottom: 15px;
+}
+
+.center button{
+    width: 200px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #ffd45e, #ff9649) ;
+    border-width: 0px;
+    font-size: x-large;
+    color: white;
+}

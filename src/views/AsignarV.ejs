@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignacion de visitas</title>
+</head>
+<body>
+    <header>
+        <%- include("./MenuVar") -%>
+    </header>
+    <article>
+        <form action="" method="post">
+            <label for="AsistenteS">ID. Asistente social</label>
+            <select name="AsistenteS" id="AsistenteS">
+                <% for(asistente of asistentes){ %>
+                    <option value="<%= asistente %>"><%= asistente %></option>
+                <% } %>
+            </select>
+            <label for="IDV">ID. Visita</label>
+            <select name="IdVisita" id="IDV">
+                <% for(visita of visitas){ %>
+                    <option value="<%= visita %>"><%= visita %></option>
+                <% } %>
+            </select>
+            <button type="submit">Asignar</button>
+        </form>
+    </article>
+</body>
+</html>
