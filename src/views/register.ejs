@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<%- include("./navbar") -%>
+<header class="header">
+    <h1 class="title">Registro de usuarios</h1>
+</header>
+    <div class="center">
+        <h2>Datos</h2>
+        <form action="/register" method="post">
+            <label for="rut">Rut <input type="text" name="rut" id="rut"></label>
+            <label for="nombre">Nombre <input type="text" name="nombre" id="nombre"></label>
+            <label for="correo">Correo <input type="text" name="correo" id="correo"></label>
+            <label for="contrasena">Contraseña<input type="password" name="contrasena" id="contrasena"></label>
+            <button type="submit" id="register-btn">Guardar</button>
+        </form>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <% if(typeof alert != "undefined") { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                time: <%= time %>
+            }).then(()=>{
+                window.location='/ <%= ruta %>'
+            })
+        </script>
+        <% } %>
+</body>
+</html>

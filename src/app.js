@@ -20,6 +20,15 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+import bcryptjs from 'bcryptjs';
+/*
+const session = required('express-session');
+app.use(session({
+    secret:'secret',
+    resave: true,
+    saveUnitialized: true
+}));*/
+
 //env vars
 dotenv.config();
 
