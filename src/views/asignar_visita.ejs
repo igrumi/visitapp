@@ -18,14 +18,14 @@
                 <select name="AsistenteS" id="AsistenteS">
                     <option value="">Seleccione un asistente</option>
                     <% for(asistente of asistentes){ %>
-                        <option value="<%= asistente %>"><%= asistente %></option>
+                        <option value="<%= asistente['nombre'] %>"><%= asistente['nombre'] %></option>
                     <% } %>
                 </select>
                 <label for="IDV">ID. Visita</label>
                 <select name="IdVisita" id="IDV">
                     <option value="">Seleccione una visita</option>
-                    <% for(visita of visitas){ %>
-                        <option value="<%= visita %>"><%= visita %></option>
+                    <% for(hogar of hogares){ %>
+                        <option value="<%= hogar['id_hogar'] %>"><%= visita["jefe_hogar_rut"] %></option>
                     <% } %>
                 </select>
                 <button type="submit">Asignar</button>
