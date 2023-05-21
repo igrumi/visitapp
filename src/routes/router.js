@@ -14,7 +14,9 @@ export const router = express.Router();
 router.get('/', welcome);
 router.get('/navbar', navbar);
 router.get("/menu_add_visita", menu_add_visita);
-router.get("/add_visita", add_visita);
+router.post("/add_visita", add_visita);
+router.get('/add_visita', (req, res) => {
+    res.render('add_visita');});
 router.get("/asignar_visita", asignar_visita);
 router.get("/login", login);
 router.post("/register", registerUser);
