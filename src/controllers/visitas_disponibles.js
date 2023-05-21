@@ -9,6 +9,7 @@ const obvisidispo = async () => {
                 resolve(rows);
             });
         });
+        console.log(visdispo);
         return visdispo;
     } catch (error) {
         console.error('Error al ejecutar la consulta:', error);
@@ -21,17 +22,21 @@ const asis_dispo = async () => {
             connection.query("SELECT * FROM usuario", (err,rows) => {
                 resolve(rows);
             });
+            
         });
+        console.log(list_asis);
         return list_asis;
     } catch (error){
         console.error('Error al ejecutar la consulta:', error);
     }
 }
 
+const dire_oficina = 'general prieto 1717';
+
 
 export const visitas_disponibles = async (req, res) => {
     const visdispo = await obvisidispo()
     const list_asis = await asis_dispo()
 
-    return res.render("visitas_disponibles", {visdispo, list_asis});
+    return res.render("visitas_disponibles", {visdispo, list_asis,dire_oficina});
 }

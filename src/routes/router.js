@@ -27,3 +27,8 @@ router.post("/register", registerUser);
 router.get('/register', (req, res) => {
   res.render('register');
 });
+router.post("/prueba/formulario", (req,res) => {
+  const { direccion } = req.body;
+  res.redirect(`https://www.google.com/maps/dir/${direccion.join('/')}`);
+})
+

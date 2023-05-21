@@ -18,42 +18,51 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8">
-                <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <td>n°</td>
-                            <td>Dirección</td>
-                            <td>Comuna</td>
-                            <td>Cel. Jefe de hogar</td>
-                            <td>Estado</td>
-                            <td>Seleccionar</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for(asistente of visdispo){ %>
-                            <tr class="table-light">
-                                <td>
-                                    <%= asistente['id_visita'] %>
-                                </td>
-                                <td>
-                                    <%= asistente['direccion'] %>   
-                                </td>
-                                <td>
-                                    <%= asistente['comuna'] %>
-                                </td>
-                                <td>
-                                    <%= asistente['celular'] %>
-                                </td>
-                                <td>
-                                    <%= asistente['estado'] %>
-                                </td>
-                                <td><input type="checkbox" id="cbox1" value=""></td>
-
+                <form action="/prueba/formulario" method="POST">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <td>n°</td>
+                                <td>Dirección</td>
+                                <td>Comuna</td>
+                                <td>Cel. Jefe de hogar</td>
+                                <td>Estado</td>
+                                <td>Seleccionar</td>
                             </tr>
-                        <% } %>
-                        <a href="https://www.google.com/maps/dir/<%= asistente['direccion'] %>"><button type="submit" class="btn btn-info">Generar ruta</button></a>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <% for(asistente of visdispo){ %>
+                                <tr class="table-light">
+                                    <td>
+                                        <%= asistente['id_visita'] %>
+                                    </td>
+                                    <td>
+                                        <a
+                                            href="https://www.google.com/maps/dir/<% dire_oficina %>/<%= asistente['direccion']%>">
+                                            <%= asistente['direccion'] %>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <%= asistente['comuna'] %>
+                                    </td>
+                                    <td>
+                                        <%= asistente['celular'] %>
+                                    </td>
+                                    <td>
+                                        <%= asistente['estado'] %>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" id="cbox1" value="<%= asistente['direccion'] %>" name="direccion">
+                                    </td>
+
+                                </tr>
+                                <% } %>
+                                    <a href="https://www.google.com/maps/dir/<%= asistente['direccion'] %>"><button
+                                            type="submit" class="btn btn-info">Generar ruta</button></a>
+                        </tbody>
+                    </table>
+                    <button type="submit">ruta test</button>
+                </form>
             </div>
             <div class="col-md-4">
                 <div class="card-body">
@@ -68,7 +77,7 @@
                         </select>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </div>
