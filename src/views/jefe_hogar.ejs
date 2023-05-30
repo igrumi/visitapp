@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
+    <%- include("components/navbar.ejs")%>
+<header class="header">
+    <h1 class="title">Jefe Hogar</h1>
+</header>
+    <div class="center">
+        <h2>Datos Jef@ de Hogar</h2>
+        <form action="/#" method="post">
+            <label for="jh_name">Nombre: <input type="text" name="jh_name" id="jh_name"></label>
+            <label for="jh_age">Edad: <input type="text" name="jh_age" id="jh_age"></label>
+            <label for="jh_birthdate">Fecha de nacimiento: <input type="date" name="jh_birthdate" id="jh_birthdate"></label>
+            <label for="jh_rut">Rut: <input type="text" name="jh_rut" id="jh_rut"></label>
+            <label for="jh_nationality">Nacionalidad: <input type="text" name="jh_nationality" id="jh_nationality"></label>
+            <label for="jh_marital_status">Estado civil: <input type="text" name="jh_marital_status" id="jh_marital_status"></label>
+            <label for="jh_phone">Nro. de contacto: <input type="text" name="jh_phone" id="jh_phone"></label>
+            <button type="submit" id="register-btn">Siguiente</button>
+        </form>
+    </div>
+</body>
+</html>

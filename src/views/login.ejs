@@ -7,21 +7,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio de sesión</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <!-- <link rel="stylesheet" href="/css/footer.css"> -->
 </head>
 
 <body>
-<%- include("./navbar") -%>
+    <%- include("components/navbar.ejs")%>
 <header class="header">
     <h1 class="title">¡Bienvenid@ a VisitApp!</h1>
 </header>
     <div class="center">
         <h2>Datos</h2>
-        <form action="auth" method="POST">
-            <label for="mail">Correo <input type="text" name="" id="mail" placeholder="example@mail.com"></label>
-            <label for="passw">Contraseña<input type="password" id="passw" placeholder="*************"></label>
+        <form action="/login" method="post">
+            <label for="correo">Correo <input type="text" name="correo" id="correo" placeholder="example@mail.com"></label>
+            <label for="contrasenaUser">Contraseña<input type="password" name="contrasenaUser" id="contrasenaUser" placeholder="*************"></label>
             <input type="submit" class="button" value="Iniciar sesión">
             <!-- <a href="login"><button type="submit">Iniciar sesión</button></a> -->
         </form>
     </div>
+    <!-- <%- include("components/footer.ejs")%> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <% if(typeof alert != "undefined") { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(()=>{
+                window.location='/<%= ruta %>'
+            })
+        </script>
+        <% } %>
 </body>
 </html>

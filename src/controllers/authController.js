@@ -6,8 +6,8 @@ import { promisify } from 'util';
 //Procedure
 export const registerUser = async (req, res) => {
     try {
-        const { rut, nombre, correo, contrasena, rol} = req.body;
-        const passwordHash = await bcryptjs.hash(contrasena, 8);
+        const { rut, nombre, correo, contrasenaUser, rol} = req.body;
+        const passwordHash = await bcryptjs.hash(contrasenaUser, 8);
         console.log(req.body)
         connection.query('INSERT INTO usuario SET ?', 
             {rut:rut, 
@@ -24,7 +24,7 @@ export const registerUser = async (req, res) => {
                     alertMessage: "Successful Registration!",
                     alertIcon: 'success',
                     showConfirmButton: false,
-                    time: 1500,
+                    timer: 1500,
                     ruta: ''
                 })
             }
@@ -36,11 +36,11 @@ export const registerUser = async (req, res) => {
 
 }
 
-export const login = async (req, res) => {
+export const loginUser = async (req, res) => {
     try {
         const { correo } = req.body;
-        const { contrasena } = req.body;
-        if(!correo || !contrasena) {
+        const { contrasenaUser } = req.body;
+        if(!correo || !contrasenaUser) {
             res.render('login', {
                 alert: true,
                 alertTitle: '¡Oops!',
@@ -51,8 +51,8 @@ export const login = async (req, res) => {
                 ruta: 'login'
             });
         }else {
-            connection.query('SELECT * FROM users WHERE correo = ?', [email], async (err, results) => {
-                if( results.length === 0 || ! await bcryptjs.compare(password, results[0].userpassword)) {
+            connection.query('SELECT * FROM usuario WHERE correo = ?', [correo], async (err, results) => {
+                if( results.length === 0 || ! await bcryptjs.compare(contrasenaUser, results[0].contrasena)) {
                     res.render('login', {
                         alert: true,
                         alertTitle: 'Error',
@@ -63,8 +63,8 @@ export const login = async (req, res) => {
                         ruta: 'login'
                     });
                 }else {
-                    const id = results[0].id;
-                    const token = jwt.sign({id:id}, process.env.JWT_SECRET, {
+                    const rut = results[0].rut;
+                    const token = jwt.sign({rut:rut}, process.env.JWT_SECRET, {
                         expiresIn: process.env.JWT_TOKEN_EXPIRES
                     });
                     const cookieOptions = {
@@ -73,6 +73,10 @@ export const login = async (req, res) => {
                     };
 
                     res.cookie('jwt', token, cookieOptions);
+
+                    //const role = determineUserRole(results[0]);
+                    //setRoleAndView(req.session, rol);
+
                     res.render('login', {
                         alert: true,
                         alertTitle: 'Iniciando Sesión',
@@ -96,12 +100,12 @@ export const isAuthenticated = async (req, res, next) => {
     if(req.cookies.jwt) {
         try {
             const decode = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
-            connection.query('SELECT * FROM users WHERE rut = ?', [decode.rut], (error, results) => {
+            connection.query('SELECT * FROM usuario WHERE rut = ?', [decode.rut], (error, results) => {
                 if(!results) {
                     return next()
                 }
                 req.user = results[0];
-                // console.log(req.user);
+                //console.log(req.user);
                 return next();
             });
         } catch (err) {
@@ -120,8 +124,8 @@ export const logout = (req, res) => {
 
 export const isAdmin = (req, res, next) => {
     try {
-        const { role } = req.user;
-        if(role === 'Administrador') {
+        const { rol } = req.user;
+        if(rol === 'admin') {
             return next();
         }else {
             res.redirect('/');

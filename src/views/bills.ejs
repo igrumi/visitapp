@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
+    <%- include("components/navbar.ejs")%>
+<header class="header">
+    <h1 class="title">Jefe Hogar</h1>
+</header>
+    <div class="center">
+        <h2>Gastos</h2>
+        <form action="/#" method="post">
+            <label for="bills_basic">Gastos básicos: <input type="text" name="bills_basic" id="bills_basic"></label>
+            <label for="bills_alim">Alimentación: <input type="text" name="bills_alim" id="bills_alim"></label>
+            <label for="bills_clothing">Vestimenta: <input type="text" name="bills_clothing" id="bills_clothing"></label>
+            <label for="bills_hygiene">Higiene: <input type="text" name="bills_hygiene" id="bills_hygiene"></label>
+            <label for="bills_tuition">Colegiatura: <input type="text" name="bills_tuition" id="bills_tuition"></label>
+            <label for="bills_home">Dividendo: <input type="text" name="bills_home" id="bills_home"></label>
+            <label for="bills_medical">Gastos médicos: <input type="text" name="bills_medical" id="bills_medical"></label>
+            <label for="bills_other">Otro: <input type="text" name="bills_other" id="bills_other"></label>
+            <button type="submit" id="register-btn">Siguiente</button>
+        </form>
+    </div>
+</body>
+</html>

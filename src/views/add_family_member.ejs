@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
+    <%- include("components/navbar.ejs")%>
+<header class="header">
+    <h1 class="title">Agregar integrante</h1>
+</header>
+    <div class="center">
+        <h2>Agregar integrante</h2>
+        <form action="/#" method="post">
+            <label for="fm_name">Nombre: <input type="text" name="fm_name" id="fm_name"></label>
+            <label for="fm_kinship">Parentesco: <input type="text" name="fm_kinship" id="fm_kinship"></label>
+            <label for="fm_age">Edad: <input type="text" name="fm_age" id="fm_age"></label>
+            <label for="fm_gender">Sexo: <input type="text" name="fm_gender" id="fm_gender"></label>
+            <label for="fm_ed_level">Nivel educacional: <input type="text" name="fm_ed_level" id="fm_ed_level"></label>
+            <label for="fm_ocupation">Ocupación: <input type="text" name="fm_ocupation" id="fm_ocupation"></label>
+            <button type="submit" id="register-btn">Siguiente</button>
+        </form>
+    </div>
+    <script src="../../public/js/navigation.js"></script>
+    <script src="../../public/js/libraries/glider.min.js"></script>
+    <script src="../../public/js/sliders/categories.js"></script>
+    <script src="../../public/js/collapsable.js"></script>
+</body>
+</html>

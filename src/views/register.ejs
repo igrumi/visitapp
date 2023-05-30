@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio de sesión</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
 </head>
 
 <body>
-<%- include("./navbar") -%>
+    <%- include("components/navbar.ejs")%>
 <header class="header">
     <h1 class="title">Registro de usuarios</h1>
 </header>
@@ -20,7 +21,7 @@
             <label for="rut">Rut <input type="text" name="rut" id="rut"></label>
             <label for="nombre">Nombre <input type="text" name="nombre" id="nombre"></label>
             <label for="correo">Correo <input type="text" name="correo" id="correo"></label>
-            <label for="contrasena">Contraseña<input type="password" name="contrasena" id="contrasena"></label>
+            <label for="contrasenaUser">Contraseña<input type="password" name="contrasenaUser" id="contrasenaUser"></label>
             <button type="submit" id="register-btn">Guardar</button>
         </form>
     </div>
@@ -32,7 +33,7 @@
                 text: '<%= alertMessage %>',
                 icon: '<%= alertIcon %>',
                 showConfirmButton: <%= showConfirmButton %>,
-                time: <%= time %>
+                timer: <%= timer %>
             }).then(()=>{
                 window.location='/ <%= ruta %>'
             })
