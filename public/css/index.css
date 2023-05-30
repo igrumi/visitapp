@@ -8,8 +8,8 @@ html {
 body {
   text-align: center;
   font-family: 'Chivo Mono', monospace;
-  margin: .5rem auto;
-  padding: 1em;
+  margin: 0;
+  /*padding: 1em;*/
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
@@ -47,28 +47,20 @@ body {
   border-radius: .5rem;
 }
 
-@keyframes breathing {
-  0% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
+/* Styles for desktop */
+.image-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Styles for smartphones */
+@media (max-width: 600px) {
+  .image-container {
+    max-width: 100%;
+    padding: 0 20px;
   }
 
-  25% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-
-  60% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-
-  100% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
+img {
+    max-width: 100%;
   }
 }

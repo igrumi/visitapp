@@ -1,9 +1,11 @@
 import express from 'express';
+import session from 'express-session';
 import dotenv from 'dotenv';
 import { routerApi } from './routes/routerApi.js';
 import { router } from './routes/router.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import cookieParser from 'cookie-parser';
 
 export const app = express();
 
@@ -32,6 +34,11 @@ app.use(session({
 //env vars
 dotenv.config();
 
+
+// Cookies
+app.use(cookieParser());
+
 // Routes
 app.use('/api', routerApi);
 app.use('/', router)
+
