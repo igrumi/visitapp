@@ -1,0 +1,43 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkmark Button Example</title>
+  <style>
+    .item {
+      margin-bottom: 10px;
+    }
+    .item.completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <h1>Checkmark Button Example</h1>
+  
+  <!-- Form to add a new item -->
+  <form method="POST" action="/">
+    <input type="text" name="item" placeholder="Enter an item" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <!-- Display the items -->
+  <% items.forEach((item) => { %>
+    <div class="item <%= item.completed ? 'completed' : '' %>">
+      <button onclick="toggleCompletion('<%= item.id %>')">
+        <%= item.completed ? '&#x2714;' : '&#x25A2;' %>
+      </button>
+      <%= item.name %>
+    </div>
+  <% }) %>
+
+  <script>
+    // Function to toggle item completion
+    function toggleCompletion(itemId) {
+      // Make an AJAX request to your server to update the completion status of the item
+      // You can use libraries like Axios or fetch to make the request
+      // Once the status is updated, you can update the UI accordingly
+    }
+  </script>
+</body>
+</html>

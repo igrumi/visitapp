@@ -13,19 +13,16 @@
 <body>
     <%- include("components/navbar.ejs")%>
 <header class="header">
-    <h1 class="title">Situación familiar</h1>
+    <h1 class="title"></h1>
 </header>
-    <div class="center">
-        <h2>Situacion familiar</h2>
+    <div class="center  ">
+        <h2>Vivienda</h2>
         <form action="/#" method="post">
-            <label for="text_sit_familiar">Ingresar situación: <input type="text" name="text_sit_familiar" id="text_sit_familiar" placeholder=""></label>
+            <label for="home_situation">Situación: <input type="text" name="home_situation" id="home_situation"></label>
+            <label for="social_rel">Relaciones sociales: <input type="text" name="social_rel" id="social_rel"></label>
+            
         </form>
-        <a href="family_comp"><button type="submit" id="register-btn">Volver</button></a>
-        <a href="family_comp"><button type="submit" id="register-btn">Siguiente</button></a>
-        
-        
+        <a href="spiritual_needs"><button type="submit" id="register-btn">Siguiente</button></a>
     </div>
-
-
 </body>
 </html>
