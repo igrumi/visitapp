@@ -1,3 +1,4 @@
 export const add_visita = (req, res) => {
-    return res.render("add_visita");
+    const { rol } = req.user;
+    return res.render("add_visita", {rol});
 }

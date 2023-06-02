@@ -22,6 +22,7 @@ import { registerUser } from "../controllers/authController.js";
 import { loginUser } from "../controllers/authController.js"
 import { register } from "../controllers/register.js";
 import { isAuthenticated,logout } from '../controllers/authController.js';
+import { checkRoleAuth } from '../middleware/roleAuth.js'
 
 export const router = express.Router();
 
@@ -41,8 +42,8 @@ router.get('/family_comp', family_comp);
 router.get("/menu_add_visit",  isAuthenticated, menu_add_visit);
 router.get("/sit_familiar", sit_familiar);
 router.get("/jefe_hogar", jefe_hogar);
-router.get("/add_visita", add_visita);
-router.get("/asignar_visita", asignar_visita);
+router.get("/add_visita", isAuthenticated, add_visita);
+router.get("/asignar_visita", isAuthenticated, checkRoleAuth('admin'), asignar_visita);
 router.get("/logout", logout);
 router.post("/login", loginUser);
 router.post("/register", registerUser);
@@ -51,8 +52,6 @@ router.get('/login', (req, res) => {
   res.render('login')
 });
 
-router.get('/register', (req, res) => {
-    res.render('register');
-});
+router.get('/register', isAuthenticated, checkRoleAuth('admin'), register);
 
 

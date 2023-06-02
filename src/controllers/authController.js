@@ -64,15 +64,17 @@ export const loginUser = async (req, res) => {
                     });
                 }else {
                     const rut = results[0].rut;
+                    
+
                     const token = jwt.sign({rut:rut}, process.env.JWT_SECRET, {
                         expiresIn: process.env.JWT_TOKEN_EXPIRES
                     });
-                    const cookieOptions = {
+                    /*const cookieOptions = {
                         expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
                         httpOnly: true
-                    };
+                    };*/
 
-                    res.cookie('jwt', token, cookieOptions);
+                    res.cookie('jwt', token);
 
                     //const role = determineUserRole(results[0]);
                     //setRoleAndView(req.session, rol);
@@ -105,6 +107,7 @@ export const isAuthenticated = async (req, res, next) => {
                     return next()
                 }
                 req.user = results[0];
+                req.isAuthenticated = true;
                 //console.log(req.user);
                 return next();
             });
