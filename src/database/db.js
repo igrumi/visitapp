@@ -4,7 +4,7 @@ export const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'visitapp_db'
+    database: 'visitapp_2'
 });
 
 connection.connect(function(err){

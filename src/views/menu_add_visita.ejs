@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu de Asisstentes sociales</title>
+    <title>Menu de visitas admin</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css"/>
+
+
 </head>
 <body>
     <header>
-        <%- include("./navbar") -%>      
+        <%- include("./navbar.ejs") -%>      
     </header>
     <article>
         <div class="center">
-            <a href="add_visita"><button>crear visita</button></a>
-            <a href="asignar_visita"><button>asignar visita</button></a>
+            <a href="add_visita"><button>Agendar visita</button></a>
+            <a href="asignar_visita"><button>Asignar visita</button></a>
+            <a href="visitas_disponibles"><button>Visitas disponibles</button></a>
         </div>
     </article>
+    <script src="js/admin-navigation.js"></script>
 </body>
 </html>

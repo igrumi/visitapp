@@ -10,7 +10,7 @@ export const registerUser = async (req, res) => {
         const passwordHash = await bcryptjs.hash(contrasena, 8);
         console.log(req.body)
         connection.query('INSERT INTO usuario SET ?', 
-            {rut:rut, 
+            {rut_usu:rut, 
             nombre:nombre,
             correo:correo,
             contrasena:passwordHash,
@@ -96,7 +96,7 @@ export const isAuthenticated = async (req, res, next) => {
     if(req.cookies.jwt) {
         try {
             const decode = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
-            connection.query('SELECT * FROM users WHERE rut = ?', [decode.rut], (error, results) => {
+            connection.query('SELECT * FROM usuario WHERE rut_usu = ?', [decode.rut], (error, results) => {
                 if(!results) {
                     return next()
                 }

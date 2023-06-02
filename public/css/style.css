@@ -5,38 +5,61 @@ body{
 }
 
 .header {
+    
     margin: auto;
+    margin-top: 30px;
     text-align: center;
   }
 
 /*manu var*/
 
 .MenuVar{
-    background-color: #ffde59;
+    background-color: #ada998;
     display: flex;
     position: relative;
-}
-
-.MenuVar button{
-    margin-right: 15px;
-    background-color: #ffde59;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border-width: 0px;
+    margin-top: 20px;
 }
-
+.menuitem{
+    margin-left: 30px;
+    color: white;
+}
+.menuitem2{
+    color: white;
+}
 .MenuVar img{
-    height: 30px;
-    width: 30px;
+    height: auto;
+    width: 60px;
+}
+.MenuVar a{
+    text-decoration:none;
+}
+.MenuVar button{
+    display: flex;
+    background-image: linear-gradient(to right, #ecd28b, #daab8a);
+    color: rgb(53, 54, 51);
+    padding: .7em 1em;
+    font-size: 1rem;
+    margin-top: 1em;
+    margin-bottom: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    font-weight: bold;
+    border-radius: .4rem;
 }
 
 /*general*/
 .center{
     background-color: white;
     margin: auto;
+    margin-top: 30px;
     width: 55%;
     padding: 1em;
     border-radius: .5rem;
     text-align: left;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    font-family: inherit;
 }
 
 .center :first-child{
@@ -52,7 +75,7 @@ body{
     color: white;
     padding: .7em 1em;
     font-size: 1rem;
-    margin-top: 1em;
+    margin-top: 1rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border: none;
     outline: none;
@@ -92,7 +115,7 @@ input[type="submit"]:hover, .input[type="submit"]:active{
 
 .center input{
     /* background-color: #ffd831; */
-    background-color: #f2f2f2;
+    background-color: #dddd;
     padding: 1em;
     border: none;
     outline: none;
@@ -117,3 +140,4 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     background-color: #f2f2f2;
     border-radius: .2rem;
 }
+/* otros */

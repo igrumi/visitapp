@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Visita</title>
+    <title>Agendar Visita</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
     <header>
         <%- include("./navbar") -%>      
     </header>
-    <article>
+    <article>                                                                                 
         <div class="center">
-            <h2>Datos</h2>
+            <h2>Datos de Visita</h2>
             <form method="post">
-                <label for="nombreJH">Nombre del jefe(a) de hogar <input type="text" name="nombreJH" id="nombreJH"></label>
-                <label for="rutJH">Rut<input type="text" name="rutJH" id="rutJH"></label>
-                <label for="celularJH">Nro. de contacto <input type="text" name='celularJH' id="celularJH"></label>
-                <label for="comunaV">Comuna <input type="text" name="comunaV" id="comunaV"></label>
-                <label for="direccionV">Direccion <input type="text" name="direccionV" id="direccionV"></label>
-                <button type="submit">Registrar</button>
+                <label for="nombreJH">Nombres Jefe de Hogar<input type="text" name="nombreJH" id="nombreJH"></label>
+                <label for="apellidoJH">Apellidos Jefe de Hogar<input type="text" name="apellidoJH" id="apellidoJH"></label>
+                <label for="rutJH">Rut Jefe de Hogar<input type="text" name="rutJH" id="rutJH"></label>
+                <label for="celularJH">Número de contacto<input type="text" name='celularJH' id="celularJH"></label>
+                <label for="correoJH">Correo electrónico<input type="text" name='correoJH' id="correoJH"></label>
+                <label for="direJH">Dirección<input type="text" name='direJH' id="direJH"></label>
+                <label for="comunaJH">Comuna<input type="text" name="comunaJH" id="comunaJH"></label>
+                <label for="">Tipo de vivienda</label><br>
+                <select name="slc_vivienda" id="slc_vivienda">
+                    <option value="casa">Casa</option>
+                    <option value="departamento">Departamento</option>
+                </select>
+                <button type="submit">Registrar visita</button>
             </form>
         </div>
     </article>
