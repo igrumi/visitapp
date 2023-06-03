@@ -1,3 +1,4 @@
 export const state_benefits = (req, res) => {
-    return res.render("state_benefits");
+    const { rol } = req.user;
+    return res.render("state_benefits", {rol});
 }

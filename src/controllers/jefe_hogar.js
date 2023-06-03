@@ -1,3 +1,4 @@
 export const jefe_hogar = (req, res) => {
-    return res.render("jefe_hogar");
+    const { rol } = req.user;
+    return res.render("jefe_hogar", {rol});
 }

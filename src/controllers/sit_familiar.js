@@ -1,3 +1,4 @@
 export const sit_familiar = (req, res) => {
-    return res.render("sit_familiar")
+    const { rol } = req.user;
+    return res.render("sit_familiar", {rol})
 }

@@ -1,3 +1,4 @@
 export const visits = (req, res) => {
-    return res.render("visits")
+    const { rol } = req.user;
+    return res.render("visits", {rol})
 }

@@ -1,3 +1,4 @@
 export const register = (req, res) => {
-    return res.render('register');
+  const { rol } = req.user;
+    return res.render('register', {rol});
   }

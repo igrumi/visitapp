@@ -1,3 +1,4 @@
 export const spiritual_needs = (req, res) => {
-    return res.render("spiritual_needs");
+    const { rol } = req.user;
+    return res.render("spiritual_needs", {rol});
 }

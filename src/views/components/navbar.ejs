@@ -12,6 +12,11 @@
                     <a href="/asignar_visita" class="nav__link">Asignar Visitas</a>
                 </li>
                 <% } %>
+                <% if (typeof rol !== 'undefined' && rol === 'admin') { %>
+                    <li class="nav__item">
+                        <a href="/register" class="nav__link">Registrar usuario</a>
+                    </li>
+                    <% } %>
                 <% if (typeof rol !== 'undefined') { %>
                 <li class="nav__item">
                     <a href="/" class="nav__link">Inicio</a>
