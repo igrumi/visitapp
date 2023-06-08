@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignacion de visitas</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="css/navbar.css"/>
+
 </head>
 <body>
     <header>
@@ -15,19 +17,22 @@
     <article>
         <div class="center">
             <form action="" method="post">
-                <label for="AsistenteS">ID. Asistente social</label>
-                <select name="AsistenteS" id="AsistenteS">
+                <label for="asistentes">ID. Asistente social</label>
+                <select name="asistentes" id="asistentes">
                     <option value="">Seleccione un asistente</option>
                     <% for(asistente of asistentes){ %>
-                        <option value="<%= asistente %>"><%= asistente %></option>
+                        <option value="<%= asistente['rut_usu'] %>"><%= asistente['nombre'] %></option>
                     <% } %>
                 </select>
-                <label for="IDV">ID. Visita</label>
-                <select name="IdVisita" id="IDV">
+                <label for="direhogar">ID. Visita</label>
+                <select name="direhogar" id="direhogar">
                     <option value="">Seleccione una visita</option>
-                    <% for(visita of visitas){ %>
-                        <option value="<%= visita %>"><%= visita %></option>
+                    <% for(hogar of hogares){ %>
+                        <option value="<%= hogar['id_hogar'] %>"><%= hogar["direccion"] %></option>
                     <% } %>
+                </select>
+                <label for="motivo">Motivo</label>
+                <textarea name="motivo" id="" cols="30" rows="10"></textarea><br>
                 </select>
                 <button type="submit">Asignar</button>
             </form>
