@@ -12,18 +12,25 @@
 
 <body>
     <%- include("components/navbar.ejs")%>
-<header class="header">
-    <h1 class="title"></h1>
-</header>
-    <div class="center  ">
+    <head></head>
+    <div class="center">
         <h2>Vivienda</h2>
         <form action="/#" method="post">
-            <label for="home_situation">Situación: <input type="text" name="home_situation" id="home_situation"></label>
-            <label for="social_rel">Relaciones sociales: <input type="text" name="social_rel" id="social_rel"></label>
-            
+            <label class="label_situation" for="home_situation">Situación vivienda: <input type="text" name="home_situation" id="home_situation"></label>
+            <label class="label_situation" for="family_situation">Situación familiar: <input type="text" name="family_situation" id="family_situation"></label>
+            <label  for="social_rel">Relaciones sociales: <input type="text" name="social_rel" id="social_rel"></label>
+            <label for="">Tipo de vivienda</label><br>
+                <select name="slc_livingplace" id="slc_livingplace">
+                    <option value="casa">Casa</option>
+                    <option value="departamento">Departamento</option>
+                </select><br>
+            <label class="label_situation" for="">Situación económica <input type="text" name="economic_situation" id="economic_situation"></label>
+            <label class="label_situation" for="">Beneficios estatales <input type="text" name="state_benefits" id="state_benefits"></label><br><br><br>
         </form>
         <a href="bills"><button type="submit" id="register-btn">Volver</button></a>
         <a href="spiritual_needs"><button type="submit" id="register-btn">Siguiente</button></a>
     </div>
 </body>
+<script src="src/controllers/home_situation.js" defer></script>
+
 </html>

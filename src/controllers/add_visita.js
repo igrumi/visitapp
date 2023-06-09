@@ -3,10 +3,10 @@ import { connection } from "../database/db.js";
 
 export const add_visita = async (req, res) => {
     try {
-        const {jh_name,jh_last_name,jh_rut,jh_phone,jh_email,jh_adress,jh_commune,slc_livingplace} = req.body
+        const {jh_rut,jh_name,jh_last_name,jh_age,jh_birthdate,jh_nat,jh_marital_status,jh_phone,jh_email,jh_address,jh_commune} = req.body
         console.log(req.body)
-        connection.query('INSERT INTO jefe_hogar (rut_jh,nombre,apellido,celular,correo) VALUES (?,?,?,?,?)',
-        [jh_rut,jh_name,jh_last_name,jh_phone,jh_email],(error, results) => {
+        connection.query('INSERT INTO jefe_hogar (rut,nombre,edad,fecha_nac,nacionalidad,estado_civil,celular,apellidos,correo) VALUES (?,?,?,?,?,?,?,?,?)',
+        [jh_rut,jh_name,jh_age,jh_birthdate,jh_nat,jh_marital_status,jh_phone,jh_last_name,jh_email,],(error, results) => {
                 if (error) {
                     console.log(error);
                 } else {
@@ -21,8 +21,8 @@ export const add_visita = async (req, res) => {
                     })
                 }
             });
-        connection.query('INSERT INTO hogar (situacion_vivienda,relaciones_sociales,direccion,comuna,beneficios_estatales, tipo_vivienda) VALUES (?,?,1,?,?)',
-            [jh_adress,jh_commune,jh_rut,slc_livingplace],(error, results) => {
+        connection.query('INSERT INTO hogar (direccion,comuna,tipo_vivienda, rut_jh) VALUES (?,?,1,?)',
+            [jh_address,jh_commune,slc_livingplace,jh_rut],(error, results) => {
                     if (error) {
                         console.log(error);
                     } 

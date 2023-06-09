@@ -5,15 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignacion de visitas</title>
-    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/navbar.css"/>
 
 </head>
 <body>
-    <header>
-        <%- include("components/navbar.ejs")%>
-    </header>
+    <%- include("components/navbar.ejs")%>
+
     <article>
         <div class="center">
             <form action="" method="post">
@@ -21,14 +19,14 @@
                 <select name="asistentes" id="asistentes">
                     <option value="">Seleccione un asistente</option>
                     <% for(asistente of asistentes){ %>
-                        <option value="<%= asistente['rut_usu'] %>"><%= asistente['nombre'] %></option>
+                        <option value="<%= asistente['rut'] %>"><%= asistente['nombre'] %></option>
                     <% } %>
                 </select>
                 <label for="direhogar">ID. Visita</label>
                 <select name="direhogar" id="direhogar">
                     <option value="">Seleccione una visita</option>
                     <% for(hogar of hogares){ %>
-                        <option value="<%= hogar['id_hogar'] %>"><%= hogar["direccion"] %></option>
+                        <option value="<%= hogar['id'] %>"><%= hogar["direccion"] %></option>
                     <% } %>
                 </select>
                 <label for="motivo">Motivo</label>

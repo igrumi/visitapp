@@ -17,6 +17,7 @@ import { home_situation } from "../controllers/home_situation.js";
 import { home_to_visit } from "../controllers/home_to_visit.js";
 import { spiritual_needs } from "../controllers/spiritual_needs.js";
 import { visit_history } from "../controllers/visit_history.js";
+import { general_situation } from "../controllers/general_situation.js";
 import { login } from "../controllers/login.js";
 import { registerUser } from "../controllers/authController.js";
 import { loginUser } from "../controllers/authController.js"
@@ -29,6 +30,7 @@ export const router = express.Router();
 router.get('/', isAuthenticated, index);
 //router.get('/navbar', navbar);
 router.get('/bills', isAuthenticated, bills);
+router.get('/general_situation', isAuthenticated, general_situation);
 router.get('/spiritual_needs', isAuthenticated, spiritual_needs);
 router.get('/home_situation', isAuthenticated, home_situation);
 router.get('/visits', isAuthenticated, visits);
