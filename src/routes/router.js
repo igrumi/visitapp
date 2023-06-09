@@ -7,7 +7,7 @@ import { family_comp } from '../controllers/family_comp.js';
 import { add_family_member } from '../controllers/add_family_member.js';
 import { economic_situation } from "../controllers/economic_situation.js";
 //import { navbar } from "../controllers/navbar.js";
-import { add_visita } from "../controllers/add_visita.js";
+//import { add_visita } from "../controllers/add_visita.js";
 import { asignar_visita } from "../controllers/asignar_visita.js";
 import { menu_add_visit } from "../controllers/menu_add_visit.js";
 import { state_benefits } from "../controllers/state_benefits.js";
@@ -24,6 +24,7 @@ import { loginUser } from "../controllers/authController.js"
 import { register } from "../controllers/register.js";
 import { isAuthenticated,logout } from '../controllers/authController.js';
 import { checkRoleAuth } from '../middleware/roleAuth.js'
+import { addVisitaForm } from '../controllers/add_visita.js';
 
 export const router = express.Router();
 
@@ -44,7 +45,7 @@ router.get('/family_comp', isAuthenticated, family_comp);
 router.get("/menu_add_visit",  isAuthenticated, menu_add_visit);
 router.get("/sit_familiar", isAuthenticated, sit_familiar);
 router.get("/jefe_hogar", isAuthenticated, jefe_hogar);
-router.get("/add_visita", isAuthenticated, add_visita);
+//router.get("/add_visita", isAuthenticated, add_visita);
 router.get("/asignar_visita", isAuthenticated, checkRoleAuth('admin'), asignar_visita);
 router.get("/logout", logout);
 router.post("/login", loginUser);
@@ -53,6 +54,13 @@ router.post("/register", registerUser);
 router.get('/login', (req, res) => {
   res.render('login')
 });
+
+router.get('/add_visita', isAuthenticated, (req, res) => {
+  const { rol } = req.user;
+    return res.render("add_visita", {rol});
+});
+
+router.post("/add_visita_insert", addVisitaForm);
 
 router.get('/register', isAuthenticated, checkRoleAuth('admin'), register);
 
