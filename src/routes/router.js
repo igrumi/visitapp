@@ -60,7 +60,7 @@ router.get('/add_visita', isAuthenticated, (req, res) => {
     return res.render("add_visita", {rol});
 });
 
-router.post("/add_visita_insert", addVisitaForm);
+router.post("/add_visita", addVisitaForm);
 
 router.get('/register', isAuthenticated, checkRoleAuth('admin'), register);
 
