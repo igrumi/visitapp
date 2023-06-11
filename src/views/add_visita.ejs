@@ -14,11 +14,11 @@
     </header>
     <article>                                                                                 
         <div class="center">
-            <h2>Datos de Visita</h2>
-            <form action="/add_visita" method="post">
+            <h2>Datos de Hogar</h2>
+            <form action="/add_visita" method="POST">
                 <label for="jh_name">Nombres Jefe de Hogar<input type="text" name="jh_name" id="jh_name"></label>
                 <label for="jh_last_name">Apellidos Jefe de Hogar<input type="text" name="jh_last_name" id="jh_last_name"></label>
-                <label for="jh_rut">Rut Jefe de Hogar<input type="text" name="jh_rut" id="jh_rut"></label>
+                <label for="jh_rut">Rut Jefe de Hogar<input type="text" name="jh_rut" id="jh_rut" placeholder="Ingrese rut sin puntos ni guion, si termina en “K” cámbielo por 1"></label>
                 <label for="jh_age">Edad<input type="text" name="jh_age" id="jh_age"></label>
                 <label for="jh_birthdate">Fecha nacimiento<input type="date" name="jh_birthdate" id="jh_birthdate"></label>
                 <label for="jh_nat">Nacionalidad<input type="text" name="jh_nat" id="jh_nat"></label>
@@ -31,5 +31,21 @@
             </form>
         </div>
     </article>
+
+        <!-- <%- include("components/footer.ejs")%> -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <% if(typeof alert != "undefined") { %>
+            <script>
+                Swal.fire({
+                    title: '<%= alertTitle %>',
+                    text: '<%= alertMessage %>',
+                    icon: '<%= alertIcon %>',
+                    showConfirmButton: <%= showConfirmButton %>,
+                    timer: <%= timer %>
+                }).then(()=>{
+                    window.location='/<%= ruta %>'
+                })
+            </script>
+            <% } %>
 </body>
 </html>

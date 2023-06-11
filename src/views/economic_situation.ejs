@@ -17,15 +17,14 @@
 </header>
     <div class="center">
         <h2>Situación Económica</h2>
-        <form action="/#" method="post">
-            <label for="jh_age">Nombre: <input type="text" name="jh_age" id="jh_age"></label>
-            <label for="jh_age">Ingresos: <input type="text" name="jh_age" id="jh_age"></label>
-            <label for="jh_birthdate">Tipo empleo: <input type="text" name="jh_birthdate" id="jh_birthdate"></label>
-            <label for="jh_rut">Desempleo: <input type="text" name="jh_rut" id="jh_rut"></label>
-            <label for="jh_rut">Previsión: <input type="text" name="jh_rut" id="jh_rut"></label>
-            
+        <form action="/economic_situation/<%= homeId %>/<%= rutIntegrante %>" method="POST">
+            <label for="i_incomes">Ingresos: <input type="text" name="i_incomes" id="i_incomes"></label>
+            <label for="i_jobtype">Tipo empleo: <input type="text" name="i_jobtype" id="i_jobtype"></label>
+            <label for="i_unemployment">Desempleo: <input type="text" name="i_unemployment" id="i_unemployment"></label>
+            <label for="i_prevision">Previsión: <input type="text" name="i_prevision" id="i_prevision"></label>
+            <button type="submit" id="register-btn">Siguiente</button>
         </form>
-        <a href="state_benefits"><button type="submit" id="register-btn">Siguiente</button></a>
+        
     </div>
 </body>
 </html>

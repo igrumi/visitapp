@@ -17,7 +17,7 @@
 </header>
     <div class="center">
         <h2>Gastos</h2>
-        <form action="/#" method="post">
+        <form action="/#" method="POST">
             <label for="bills_basic">Gastos básicos: <input type="text" name="bills_basic" id="bills_basic"></label>
             <label for="bills_alim">Alimentación: <input type="text" name="bills_alim" id="bills_alim"></label>
             <label for="bills_clothing">Vestimenta: <input type="text" name="bills_clothing" id="bills_clothing"></label>
@@ -26,9 +26,10 @@
             <label for="bills_home">Dividendo: <input type="text" name="bills_home" id="bills_home"></label>
             <label for="bills_medical">Gastos médicos: <input type="text" name="bills_medical" id="bills_medical"></label>
             <label for="bills_other">Otro: <input type="text" name="bills_other" id="bills_other"></label>
+            <a href="home_situation"><button type="submit" id="register-btn">Siguiente</button></a>
         </form>
-        <a href="family_comp"><button type="submit" id="register-btn">Volver</button></a>
-        <a href="home_situation"><button type="submit" id="register-btn">Siguiente</button></a>
+        <a href="/family_comp/<%= homeId %>"><button type="submit">Volver</button></a>
+        
     </div>
 </body>
 </html>

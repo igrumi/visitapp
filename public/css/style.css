@@ -288,3 +288,26 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     background-color: #f2f2f2;
     border-radius: .2rem;
 }
+
+.down_table{
+    display: block;
+
+    margin-top: 100px;
+}
+
+.btn_color{
+    background-color: #ffffff;
+    padding: 10px;
+    font-weight: 600px;
+    font-family: 'Courgette', cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: larger;
+    color: #534f4f;
+    border: none;
+    outline: none;
+    border-radius: 10%;
+}
+.td_table{
+    text-align: center;
+}

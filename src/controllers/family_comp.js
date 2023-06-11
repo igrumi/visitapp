@@ -1,3 +1,6 @@
 export const family_comp = (req, res) => {
-    return res.render("family_comp");
+    
+    const { homeId } = req.params;
+    const { rol } = req.user;
+    return res.render("family_comp", {homeId, rol});
 }

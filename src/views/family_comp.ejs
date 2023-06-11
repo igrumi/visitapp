@@ -14,9 +14,9 @@
     <%- include("components/navbar.ejs")%>
     <div class="center3">
         <h2>Integrantes</h2>
-        <a href="add_family_member"><button type="submit" id="register-btn">Agregar integrante</button></a>
-        <a href="bills"><button type="submit" id="register-btn">Continuar</button></a>
-        <a href="sit_familiar"><button type="submit" id="register-btn">Volver</button></a>
+        <a href="/add_family_member/<%= homeId %>"><button type="submit" id="register-btn">Agregar integrante</button></a>
+        <a href="/bills/<%= homeId %>"><button type="submit" id="register-btn">Continuar</button></a>
+        <a href="/visit_available"><button type="submit" id="register-btn">Volver</button></a>
     </div>
 </body>
 </html>

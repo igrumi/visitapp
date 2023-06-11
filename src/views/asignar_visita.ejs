@@ -26,7 +26,7 @@
                 <select name="direhogar" id="direhogar">
                     <option value="">Seleccione una visita</option>
                     <% for(hogar of hogares){ %>
-                        <option value="<%= hogar['id'] %>"><%= hogar["direccion"] %></option>
+                        <option value="<%= hogar['id_hogar'] %>"><%= hogar["direccion"] %></option>
                     <% } %>
                 </select>
                 <label for="motivo">Motivo</label>

@@ -69,15 +69,8 @@ export const loginUser = async (req, res) => {
                     const token = jwt.sign({rut:rut}, process.env.JWT_SECRET, {
                         expiresIn: process.env.JWT_TOKEN_EXPIRES
                     });
-                    /*const cookieOptions = {
-                        expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
-                        httpOnly: true
-                    };*/
 
                     res.cookie('jwt', token);
-
-                    //const role = determineUserRole(results[0]);
-                    //setRoleAndView(req.session, rol);
 
                     res.render('login', {
                         alert: true,

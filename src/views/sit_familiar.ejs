@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
+    <%- include("components/navbar.ejs")%>
+<header class="header">
+    <h1 class="title">Situación familiar</h1>
+</header>
+    <div class="center">
+        <h2>Situacion familiar</h2>
+        <form action="/#" method="post">
+            <label for="text_sit_familiar">Ingresar situación: <input type="text" name="text_sit_familiar" id="text_sit_familiar" placeholder=""></label>
+        </form>
+        <a href="family_comp"><button type="submit" id="register-btn">Volver</button></a>
+        <a href="family_comp"><button type="submit" id="register-btn">Siguiente</button></a>
+        
+        
+    </div>
+
+
+</body>
+</html>
