@@ -2,54 +2,57 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio de sesión</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/navbar.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/navbar.css">
 </head>
 
 <body>
     <%- include("components/navbar.ejs")%>
-<header class="header">
-    <h1 class="title"></h1>
-</header>
-    <div class="center3">
-        <h2>Necesidades espirituales:</h2>
+        <header class="header">
+            <h1 class="title"></h1>
+        </header>
+        <div class="center3">
+            <h2>Necesidades espirituales:</h2>
+            <form action="/spiritual_needs/<%= homeId %>" method="POST">
+                <label for="be_desc">Bendición casa</label>
+                <select name="bendicion_casa" id="bendicion_casa">
+                    <option value="">Seleccionar...</option>
+                    <option value="yes">Sí</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="be_desc">Bautismo</label>
+                <select name="bautismos" id="bautismos">
+                    <option value="">Seleccionar...</option>
+                    <option value="yes">Sí</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="be_desc">Unción enfermos</label>
+                <select name="uncion_enfermos" id="uncion_enfermos">
+                    <option value="">Seleccionar...</option>
+                    <option value="yes">Sí</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="be_desc">Primera comunión</label>
+                <select name="primera_comunion" id="primera_comunion">
+                    <option value="">Seleccionar...</option>
+                    <option value="yes">Sí</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="be_desc">Confirmación</label>
+                <select name="confirmacion" id="confirmacion">
+                    <option value="">Seleccionar...</option>
+                    <option value="yes">Sí</option>
+                    <option value="no">No</option>
+                </select>
+                <button type="submit" id="register-btn">Finalizar</button>
+            </form>
+            <a href="/home_situation/<%= homeId %>"><button type="submit" id="register-btn">Volver</button></a>
 
-        <label for="be_desc">Bendición casa</label>
-        <select name="spiritual_needs" id="spiritual_needs">
-            <option value="">Seleccionar...</option>
-            <option value="yes">Sí</option>
-            <option value="no">No</option>
-        </select>
-        <label for="be_desc">Bautismo</label>
-        <select name="spiritual_needs" id="spiritual_needs">
-            <option value="">Seleccionar...</option>
-            <option value="yes">Sí</option>
-            <option value="no">No</option>
-        </select>
-        <label for="be_desc">Unción enfermos</label>
-        <select name="spiritual_needs" id="spiritual_needs">
-            <option value="">Seleccionar...</option>
-            <option value="yes">Sí</option>
-            <option value="no">No</option>
-        </select>
-        <label for="be_desc">Primera comunión</label>
-        <select name="spiritual_needs" id="spiritual_needs">
-            <option value="">Seleccionar...</option>
-            <option value="yes">Sí</option>
-            <option value="no">No</option>
-        </select>
-        <label for="be_desc">Confirmación</label>
-        <select name="spiritual_needs" id="spiritual_needs">
-            <option value="">Seleccionar...</option>
-            <option value="yes">Sí</option>
-            <option value="no">No</option>
-        </select>
-        <a href="home_situation"><button type="submit" id="register-btn">Volver</button></a>
-        <a href="visits"><button type="submit" id="register-btn">Finalizar</button></a>
-    </div>
+        </div>
 </body>
+
 </html>

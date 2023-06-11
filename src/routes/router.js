@@ -19,8 +19,10 @@ import { bills } from "../controllers/bills.js";
 import { bills_render } from "../controllers/bills.js";
 import { visits } from "../controllers/visits.js";
 import { home_situation } from "../controllers/home_situation.js";
+import { home_situation_render } from "../controllers/home_situation.js";
 import { home_to_visit } from "../controllers/home_to_visit.js";
 import { spiritual_needs } from "../controllers/spiritual_needs.js";
+import { spiritual_needs_render } from "../controllers/spiritual_needs.js";
 import { visit_history } from "../controllers/visit_history.js";
 import { general_situation } from "../controllers/general_situation.js";
 import { login } from "../controllers/login.js";
@@ -38,7 +40,7 @@ export const router = express.Router();
 router.get('/', isAuthenticated, index);
 
 router.get('/general_situation', isAuthenticated, general_situation);
-router.get('/spiritual_needs', isAuthenticated, spiritual_needs);
+
 router.get('/home_situation', isAuthenticated, home_situation);
 router.get('/visits', isAuthenticated, visits);
 router.get('/home_to_visit', isAuthenticated, home_to_visit);
@@ -91,9 +93,14 @@ router.post('/health_situation/:homeId/:rutIntegrante', isAuthenticated, health_
 
 // RUTAS GASTOS
 router.get('/bills/:homeId', isAuthenticated, bills_render);
-router.get('/bills/:homeId', isAuthenticated, bills);
-
-// RUTAS
+router.post('/bills/:homeId', isAuthenticated, bills);
+// RUTAS SITUACION VIVIENDA
+router.get('/home_situation/:homeId', isAuthenticated, home_situation_render);
+router.post('/home_situation/:homeId', isAuthenticated, home_situation);
+//
+router.get('/spiritual_needs/:homeId', isAuthenticated, spiritual_needs_render);
+router.post('/spiritual_needs/:homeId', isAuthenticated, spiritual_needs);
+// GENERAR RUTA DE VISITA GOOGLE MAPS
 router.post("/prueba/formulario", (req, res) => {
   const { direccion } = req.body;
   const direOfi = 'Padre Alonso de Ovalle 1586';
