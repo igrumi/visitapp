@@ -7,8 +7,10 @@ export const spiritual_needs = (req, res) => {
 
     connection.query('INSERT INTO necesidades_espirituales( bendicion_casa, bautismo, uncion_enfermos,\
         primera_comunion, confirmacion, id_hogar) VALUES(?,?,?,?,?,?)', 
-        [bendicion_casa, bautismos, uncion_enfermos, primera_comunion, confirmacion, Number(homeId)])
+        [bendicion_casa, bautismos, uncion_enfermos, primera_comunion, confirmacion, Number(homeId)]);
 
+    connection.query('UPDATE visita SET estado = "completo", fecha_visi = NOW()  WHERE id_hogar = ?', [homeId]);
+    
     return res.redirect(`/visit_available`)
 }
 

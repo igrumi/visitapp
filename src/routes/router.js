@@ -108,6 +108,6 @@ router.post("/prueba/formulario", (req, res) => {
     return res.redirect('/visit_available')
   }
   //res.redirect(`https://www.google.com/maps/dir/${direOfi}/${direccion.join('/')}`);
-  res.redirect(`https://www.google.com/maps/dir/${direOfi}/${typeof direccion !== 'string' ? direccion.join('/') : '/'+direccion}`);
+  res.redirect(`https://www.google.com/maps/dir/${direOfi}/${typeof direccion !== 'string' ? direccion.join('/') : ''+direccion}`);
 })
 
