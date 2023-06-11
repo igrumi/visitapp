@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio</title>
+  <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/navbar.css">
 </head>
@@ -13,12 +14,34 @@
 <body>
   <%- include("components/navbar.ejs")%>
 
-  <div class="center3">
-    <h2>Historial</h2>
-    <label for="i_birthdate">Desde: <input type="date" name="i_birthdate" id="i_birthdate"></label>
-    <label for="i_birthdate">Hasta: <input type="date" name="i_birthdate" id="i_birthdate"></label>
+    <div class="center3">
+      <h2>Historial</h2>
+      <form action="/visit_history" method="POST">
+        <label for="date_ini">Desde: <input type="date" name="date_ini" id="date_ini"></label>
+        <label for="date_end">Hasta: <input type="date" name="date_end" id="date_end"></label>
+        <button type="submit">prueba</button>
+      </form>
+      <br><br>
+    </div>
 
+    <div class="center">
+      <table class="table table-bordered table-hover">
+        <thead class="table-active">
+          <tr>
+            <td>N° visita</td>
+            <td>Dirección</td>
+            <td>Comuna</td>
+            <td>Cel. Jefe de hogar</td>
+            <td>Estado</td>
+            <td>Formularios</td>
+            <td>Seleccionar</td>
+          </tr>
+        </thead>
+        <tbody>
 
-  </div>
+        </tbody>
+      </table>
+    </div>
 </body>
+
 </html>

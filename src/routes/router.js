@@ -44,7 +44,7 @@ router.get('/general_situation', isAuthenticated, general_situation);
 router.get('/home_situation', isAuthenticated, home_situation);
 router.get('/visits', isAuthenticated, visits);
 router.get('/home_to_visit', isAuthenticated, home_to_visit);
-router.get('/visit_history', isAuthenticated, visit_history);
+
 router.get("/menu_add_visit",  isAuthenticated, menu_add_visit);
 router.get("/sit_familiar", isAuthenticated, sit_familiar);
 router.get("/jefe_hogar", isAuthenticated, jefe_hogar);
@@ -100,6 +100,9 @@ router.post('/home_situation/:homeId', isAuthenticated, home_situation);
 //
 router.get('/spiritual_needs/:homeId', isAuthenticated, spiritual_needs_render);
 router.post('/spiritual_needs/:homeId', isAuthenticated, spiritual_needs);
+//
+router.get('/visit_history', isAuthenticated, visit_history);
+router.post('/visit_history', isAuthenticated, visit_history);
 // GENERAR RUTA DE VISITA GOOGLE MAPS
 router.post("/prueba/formulario", (req, res) => {
   const { direccion } = req.body;
