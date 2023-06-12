@@ -11,12 +11,15 @@
 </head>
 
 <body>
-    <%- include("components/navbar.ejs")%>
+  <%- include("components/navbar.ejs")%>
     <div class="center3">
-        <h2>Integrantes</h2>
-        <a href="/add_family_member/<%= homeId %>"><button type="submit" id="register-btn">Agregar integrante</button></a>
-        <a href="/bills/<%= homeId %>"><button type="submit" id="register-btn">Continuar</button></a>
-        <a href="/visit_available"><button type="submit" id="register-btn">Volver</button></a>
+      <h2>Integrantes</h2>
+      <a href="/add_family_member/<%= homeId %>"><button type="submit" id="register-btn">Agregar integrante</button></a>
+    </div>
+    <div class="centerdiv">
+      <a href="/bills/<%= homeId %>"><button type="submit" id="register-btn">Continuar</button></a>
+      <a href="/visit_available"><button type="submit" id="register-btn">Volver</button></a>
     </div>
 </body>
+
 </html>

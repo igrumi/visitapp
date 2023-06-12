@@ -1,35 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap');
 
-body{
+body {
     background-color: #ffb514f0;
 }
 
 .header {
     margin: auto;
     text-align: center;
-  }
+}
 
 /*manu var*/
 
-.MenuVar{
+.MenuVar {
     background-color: #ffde59;
     display: flex;
     position: relative;
 }
 
-.MenuVar button{
+.MenuVar button {
     margin-right: 15px;
     background-color: #ffde59;
     border-width: 0px;
 }
 
-.MenuVar img{
+.MenuVar img {
     height: 30px;
     width: 30px;
 }
 
 /*general*/
-.center{
+.center {
     background-color: white;
     margin: auto;
     margin-top: 5em;
@@ -40,16 +40,16 @@ body{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
-.center :first-child{
+.center :first-child {
     margin-top: 15px;
 }
 
-.center :last-child{
+.center :last-child {
     margin-bottom: 15px;
 }
 
-.center button{
-    background-image: linear-gradient(to right, #ffd45e, #ff9649) ;
+.center button {
+    background-image: linear-gradient(to right, #ffd45e, #ff9649);
     color: white;
     padding: .7em 1em;
     font-size: 1rem;
@@ -61,8 +61,8 @@ body{
     border-radius: .4rem;
 }
 
-input[type="submit"]{
-    background-image: linear-gradient(to right, #ffd45e, #ff9649) ;
+input[type="submit"] {
+    background-image: linear-gradient(to right, #ffd45e, #ff9649);
     color: white;
     padding: .7em 1em;
     font-size: 1rem;
@@ -75,29 +75,30 @@ input[type="submit"]{
     cursor: pointer;
 }
 
-input[type="submit"]:hover, .input[type="submit"]:active{
+input[type="submit"]:hover,
+.input[type="submit"]:active {
     color: #fff;
-    background-image: linear-gradient(to right, #ff9649, #ff8a36) ;
+    background-image: linear-gradient(to right, #ff9649, #ff8a36);
 }
 
-.center h2{
+.center h2 {
     text-align: center;
     color: #feb41d;
 }
 
-.center label{
+.center label {
     margin-top: 15px;
     display: grid;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.label_situation{
+.label_situation {
     text-align: left;
     color: #feb41d;
 }
 
-.center input{
+.center input {
     /* background-color: #ffd831; */
     background-color: #f2f2f2;
     padding: 1em;
@@ -111,7 +112,7 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     outline: #ffc600 solid;
 }
 
-.center select{
+.center select {
     display: block;
     font-size: 16px;
     font-weight: 400;
@@ -125,7 +126,7 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     border-radius: .2rem;
 }
 
-.center2{
+.center2 {
     background-color: white;
     margin: auto;
     margin-top: 5em;
@@ -134,19 +135,19 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     border-radius: .5rem;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    
+
 }
 
-.center2 :first-child{
+.center2 :first-child {
     margin-top: 15px;
 }
 
-.center2 :last-child{
+.center2 :last-child {
     margin-bottom: 15px;
 }
 
-.center2 button{
-    background-image: linear-gradient(to left, #ffd45e, #ff9649) ;
+.center2 button {
+    background-image: linear-gradient(to left, #ffd45e, #ff9649);
     color: white;
     padding: .7em 3em;
     font-size: 1rem;
@@ -156,22 +157,21 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     outline: none;
     font-weight: bold;
     border-radius: .4rem;
-    cursor:pointer
-    
+    cursor: pointer
 }
 
-.center2 h2{
+.center2 h2 {
     text-align: center;
     color: #feb41d;
 }
 
-.center2 label{
+.center2 label {
     margin-top: 15px;
     font-weight: 300;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.center2 input{
+.center2 input {
     /* background-color: #ffd831; */
     background-color: #f2f2f2;
     padding: 1em;
@@ -179,7 +179,7 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     outline: none;
     border-radius: .2rem;
     font-size: 1rem;
-    display:inline;
+    display: inline;
     margin-bottom: 1%;
 }
 
@@ -187,7 +187,7 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     outline: #ffc600 solid;
 }
 
-.center2 select{
+.center2 select {
     display: block;
     font-size: 16px;
     font-weight: 400;
@@ -208,9 +208,9 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-  }
+}
 
-  .center3{
+.center3 {
     background-color: white;
     margin: auto;
     margin-top: 9em;
@@ -219,19 +219,19 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     border-radius: .5rem;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    
+
 }
 
-.center3 :first-child{
+.center3 :first-child {
     margin-top: 15px;
 }
 
-.center3 :last-child{
+.center3 :last-child {
     margin-bottom: 15px;
 }
 
-.center3 button{
-    background-image: linear-gradient(to left, #ffd45e, #ff9649) ;
+.center3 button {
+    background-image: linear-gradient(to left, #ffd45e, #ff9649);
     color: white;
     padding: .7em 3em;
     font-size: 1rem;
@@ -241,17 +241,15 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     outline: none;
     font-weight: bold;
     border-radius: .4rem;
-    cursor:pointer;
-
-    
+    cursor: pointer;
 }
 
-.center3 h2{
+.center3 h2 {
     text-align: center;
     color: #feb41d;
 }
 
-.center3 label{
+.center3 label {
     margin-top: 15px;
     display: grid;
     font-weight: 300;
@@ -259,7 +257,7 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.center3 input{
+.center3 input {
     /* background-color: #ffd831; */
     background-color: #f2f2f2;
     padding: 1em;
@@ -267,7 +265,7 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     outline: none;
     border-radius: .2rem;
     font-size: 1rem;
-    display:inline;
+    display: inline;
     margin-bottom: 1%;
 }
 
@@ -275,7 +273,7 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     outline: #ffc600 solid;
 }
 
-.center3 select{
+.center3 select {
     display: block;
     font-size: 16px;
     font-weight: 400;
@@ -289,13 +287,13 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     border-radius: .2rem;
 }
 
-.down_table{
+.down_table {
     display: block;
 
     margin-top: 100px;
 }
 
-.btn_color{
+.btn_color {
     background-color: #ffffff;
     padding: 10px;
     font-weight: 600px;
@@ -308,6 +306,81 @@ input[type="submit"]:hover, .input[type="submit"]:active{
     outline: none;
     border-radius: 10%;
 }
-.td_table{
+
+.td_table {
     text-align: center;
+}
+
+.centerdiv {
+    background-color: white;
+    margin: auto;
+    margin-top: 3rem;
+    width: 15em;
+    padding: 1em;
+    border-radius: .5rem;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.centerdiv button {
+    background-image: linear-gradient(to left, #ffd45e, #ff9649);
+    color: white;
+    padding: .7em 3em;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: .4rem;
+    cursor: pointer
+}
+
+.center4 {
+    background-color: white;
+    margin: auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 3rem;
+    width: auto;
+    height: auto;
+    border-radius: .5rem;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.center4 table{
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+}
+.center5 {
+    background-color: white;
+    margin: auto;
+    margin-top: 9em;
+    width: 17.5em;
+    padding: 1em;
+    border-radius: .5rem;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.center5 label {
+    margin-top: 15px;
+    display: grid;
+    font-weight: 300;
+    text-align: left;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.center5 button {
+    background-image: linear-gradient(to left, #ffd45e, #ff9649);
+    color: white;
+    padding: .5em 1rem;
+    font-size: 1rem;
+    margin-top: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: .4rem;
+    cursor: pointer;
 }

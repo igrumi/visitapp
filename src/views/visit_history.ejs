@@ -14,31 +14,52 @@
 <body>
   <%- include("components/navbar.ejs")%>
 
-    <div class="center3">
+    <div class="center5">
       <h2>Historial</h2>
       <form action="/visit_history" method="POST">
         <label for="date_ini">Desde: <input type="date" name="date_ini" id="date_ini"></label>
         <label for="date_end">Hasta: <input type="date" name="date_end" id="date_end"></label>
-        <button type="submit">prueba</button>
+        <button type="submit">Filtrar</button>
       </form>
-      <br><br>
     </div>
 
-    <div class="center">
+    <div class="center4">
       <table class="table table-bordered table-hover">
         <thead class="table-active">
           <tr>
             <td>N° visita</td>
+            <td>Jefe de hogar</td>
             <td>Dirección</td>
             <td>Comuna</td>
             <td>Cel. Jefe de hogar</td>
-            <td>Estado</td>
-            <td>Formularios</td>
-            <td>Seleccionar</td>
+            <td>Estado visita</td>
+
           </tr>
         </thead>
         <tbody>
-
+            <% for(i of list_visi_usu){ %>
+              <tr class="table-light">
+                <td class="td_table">
+                  <%= i['id'] %>
+                </td>
+                <td class="td_table">
+                  <%= i['nombre'] %>
+                    <%= i['apellidos'] %>
+                </td>
+                <td class="td_table">
+                  <%= i['direccion'] %>
+                </td>
+                <td class="td_table">
+                  <%= i['comuna'] %>
+                </td>
+                <td class="td_table">
+                  <%= i['celular'] %>
+                </td>
+                <td class="td_table">
+                  <%= i['estado'] %>
+                </td>
+              </tr>
+            <% } %>
         </tbody>
       </table>
     </div>

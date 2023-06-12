@@ -70,37 +70,36 @@ router.get("/asignar_visita", isAuthenticated, checkRoleAuth('admin'), asignar_v
 
 router.get("/visit_available", isAuthenticated, visit_available);
 
-// RUTAS INTEGRANTES HOGAR
+// RUTAS MENU AGREGAR INTEGRANTE
 router.get('/family_comp/:homeId', isAuthenticated, family_comp, (req, res) =>{
   const { rol } = req.user;
   return res.render("/family_comp", {rol});
 });
-
+// RUTAS FORMULARIO AGREGAR INTEGRANTE
 router.get('/add_family_member/:homeId', isAuthenticated, add_family, (req, res) =>{
     const { rol } = req.user;
     return res.render("/add_family_member", {rol});
 });
 router.post('/add_family_member/:homeId', isAuthenticated, add_family_member);
-
+// RUTAS SITUACION ECONOMICA
 router.get('/economic_situation/:homeId/:rutIntegrante', isAuthenticated, econo_situa_render);
 router.post('/economic_situation/:homeId/:rutIntegrante', isAuthenticated, economic_situation);
-
+// RUTAS BENEFICIOS ESTATALES
 router.get('/state_benefits/:homeId/:rutIntegrante', isAuthenticated, state_benefits_render);
 router.post('/state_benefits/:homeId/:rutIntegrante', isAuthenticated, state_benefits);
-
+// RUTAS SITUACION SALUD
 router.get('/health_situation/:homeId/:rutIntegrante', isAuthenticated, health_situation_render);
 router.post('/health_situation/:homeId/:rutIntegrante', isAuthenticated, health_situation);
-
 // RUTAS GASTOS
 router.get('/bills/:homeId', isAuthenticated, bills_render);
 router.post('/bills/:homeId', isAuthenticated, bills);
 // RUTAS SITUACION VIVIENDA
 router.get('/home_situation/:homeId', isAuthenticated, home_situation_render);
 router.post('/home_situation/:homeId', isAuthenticated, home_situation);
-//
+// RUTAS NECESIDADES ESPIRITUALES
 router.get('/spiritual_needs/:homeId', isAuthenticated, spiritual_needs_render);
 router.post('/spiritual_needs/:homeId', isAuthenticated, spiritual_needs);
-//
+// RUTA HISTORIAL DE VIISITAS
 router.get('/visit_history', isAuthenticated, visit_history);
 router.post('/visit_history', isAuthenticated, visit_history);
 // GENERAR RUTA DE VISITA GOOGLE MAPS
