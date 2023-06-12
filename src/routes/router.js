@@ -33,7 +33,8 @@ import { isAuthenticated,logout } from '../controllers/authController.js';
 import { checkRoleAuth } from '../middleware/roleAuth.js'
 import { addVisitaForm } from '../controllers/add_visita.js';
 import { visit_available } from '../controllers/visit_available.js';
-
+import { edit_visit } from '../controllers/edit_visit.js';
+import { edit_visit_render } from '../controllers/edit_visit.js';
 
 export const router = express.Router();
 
@@ -71,7 +72,7 @@ router.get("/asignar_visita", isAuthenticated, checkRoleAuth('admin'), asignar_v
 router.get("/visit_available", isAuthenticated, visit_available);
 
 // RUTAS MENU AGREGAR INTEGRANTE
-router.get('/family_comp/:homeId', isAuthenticated, family_comp, (req, res) =>{
+router.get('/family_comp/:homeId', isAuthenticated, checkRoleAuth('usuario'), checkRoleAuth('admin'), family_comp, (req, res) =>{
   const { rol } = req.user;
   return res.render("/family_comp", {rol});
 });
@@ -102,6 +103,9 @@ router.post('/spiritual_needs/:homeId', isAuthenticated, spiritual_needs);
 // RUTA HISTORIAL DE VIISITAS
 router.get('/visit_history', isAuthenticated, visit_history);
 router.post('/visit_history', isAuthenticated, visit_history);
+// RUTA EDITAR HOGAR
+router.get('/edit_visit/:homeId', isAuthenticated, edit_visit_render);
+router.post('/edit_visit/:homeId', isAuthenticated, edit_visit);
 // GENERAR RUTA DE VISITA GOOGLE MAPS
 router.post("/prueba/formulario", (req, res) => {
   const { direccion } = req.body;

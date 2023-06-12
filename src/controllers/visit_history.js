@@ -13,6 +13,6 @@ export const visit_history = async (req, res) => {
             resolve(results);
         });
     });
-    console.log(list_visi_usu)
+
     return res.render("visit_history", {rol, list_visi_usu });
 }
