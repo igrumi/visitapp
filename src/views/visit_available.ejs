@@ -31,6 +31,7 @@
                                     <td>Cel. Jefe de hogar</td>
                                     <td>Estado</td>
                                     <td>Formularios</td>
+                                    <td>Gestionar</td>
                                     <td>Seleccionar</td>
                                 </tr>
                             </thead>
@@ -54,6 +55,9 @@
                                         </td>
                                         <td class="td_table">
                                             <a href="/family_comp/<%= i['id_hogar'] %>">Iniciar visita</a>
+                                        </td>
+                                        <td>
+                                            <a href="/edit_visit/<%= i['id_hogar'] %>">Editar</a>
                                         </td>
                                         <td class="td_table">
                                             <input type="checkbox" id="cbox1" value="<%= i['direccion'] %>" name="direccion">

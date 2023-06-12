@@ -20,7 +20,7 @@
             <h2>Actualizar Datos de Hogar</h2>
             <br>
             <p>"Por favor ingrese los nuevos datos del hogar que deseas actualizar"</p><br>
-            <form action="/edit_visit/:homeId" method="POST">
+            <form action="/edit_visit/<%= homeId %>" method="POST">
                 <label for="jh_name">Nombres Jefe de Hogar<input type="text" name="jh_name" id="jh_name"></label>
                 <label for="jh_last_name">Apellido Jefe de Hogar<input type="text" name="jh_last_name"
                         id="jh_last_name"></label>
