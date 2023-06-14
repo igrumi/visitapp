@@ -35,6 +35,7 @@ import { addVisitaForm } from '../controllers/add_visita.js';
 import { visit_available } from '../controllers/visit_available.js';
 import { edit_visit } from '../controllers/edit_visit.js';
 import { edit_visit_render } from '../controllers/edit_visit.js';
+import { exportation, exporting } from "../controllers/exportation.js"
 
 export const router = express.Router();
 
@@ -116,4 +117,6 @@ router.post("/prueba/formulario", (req, res) => {
   //res.redirect(`https://www.google.com/maps/dir/${direOfi}/${direccion.join('/')}`);
   res.redirect(`https://www.google.com/maps/dir/${direOfi}/${typeof direccion !== 'string' ? direccion.join('/') : ''+direccion}`);
 })
-
+//EXPORTACION DE DATOS
+router.get("/export", isAuthenticated, exportation)
+router.post("/export", isAuthenticated, exporting)
