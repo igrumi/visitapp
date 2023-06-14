@@ -35,6 +35,19 @@ import { addVisitaForm } from '../controllers/add_visita.js';
 import { visit_available } from '../controllers/visit_available.js';
 import { edit_visit } from '../controllers/edit_visit.js';
 import { edit_visit_render } from '../controllers/edit_visit.js';
+import {
+  getUsuarios,
+  agregarUsuario,
+  editarUsuario,
+  mostrarFormularioEdicion,
+  mostrarFormularioEdicionInactive,
+  disableUser,
+  enableUser,
+  editarUsuarioInactive,
+  mostrarFormularioDeshabilitacion,
+  mostrarFormularioHabilitacion
+} from "../controllers/adminUsers.js";
+import { rejects } from 'assert';
 
 export const router = express.Router();
 
@@ -72,10 +85,9 @@ router.get("/asignar_visita", isAuthenticated, checkRoleAuth('admin'), asignar_v
 router.get("/visit_available", isAuthenticated, visit_available);
 
 // RUTAS MENU AGREGAR INTEGRANTE
-router.get('/family_comp/:homeId', isAuthenticated, checkRoleAuth('usuario'), checkRoleAuth('admin'), family_comp, (req, res) =>{
-  const { rol } = req.user;
-  return res.render("/family_comp", {rol});
-});
+router.get('/family_comp/:homeId', isAuthenticated, family_comp);
+
+
 // RUTAS FORMULARIO AGREGAR INTEGRANTE
 router.get('/add_family_member/:homeId', isAuthenticated, add_family, (req, res) =>{
     const { rol } = req.user;
@@ -117,3 +129,29 @@ router.post("/prueba/formulario", (req, res) => {
   res.redirect(`https://www.google.com/maps/dir/${direOfi}/${typeof direccion !== 'string' ? direccion.join('/') : ''+direccion}`);
 })
 
+// RUTAS MANTENEDOR USUARIOS
+// Ruta para obtener la lista de usuarios
+router.get("/users", isAuthenticated, checkRoleAuth('admin'), getUsuarios);
+
+// Ruta para mostrar el formulario de agregar usuario
+router.get("/users/add", isAuthenticated, checkRoleAuth('admin'), agregarUsuario);
+
+// Ruta para agregar un nuevo usuario
+router.post("/users/add", isAuthenticated, checkRoleAuth('admin'), agregarUsuario);
+
+// Ruta para mostrar el formulario de edición de usuario
+router.get("/users/edit/:rut", isAuthenticated, checkRoleAuth('admin'), mostrarFormularioEdicion);
+router.get("/users/edit_inactive/:rut", isAuthenticated, checkRoleAuth('admin'), mostrarFormularioEdicionInactive);
+
+// Ruta para editar un usuario existente
+router.post("/users/edit/:rut", isAuthenticated, checkRoleAuth('admin'), editarUsuario);
+router.post("/users/edit_inactive/:rut", isAuthenticated, checkRoleAuth('admin'), editarUsuarioInactive);
+
+
+// Ruta para mostrar el formulario de confirmación de deshabilitación/habilitación de usuario
+router.get("/users/disable/:rut", isAuthenticated, checkRoleAuth('admin'), mostrarFormularioDeshabilitacion);
+router.get("/users/enable/:rut", isAuthenticated, checkRoleAuth('admin'), mostrarFormularioHabilitacion);
+
+// Ruta para deshabilitación/habilitación de un usuario
+router.post("/users/disable/:rut", isAuthenticated, checkRoleAuth('admin'), disableUser);
+router.post("/users/enable/:rut", isAuthenticated, checkRoleAuth('admin'), enableUser);

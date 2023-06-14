@@ -1,77 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asignacion de visitas</title>
-    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+  </head>
 
-</head>
-
-<body>
-    
-    <header>
-        <%- include("components/navbar.ejs")%>
-    </header>
+  <body>
+    <header><%- include("components/navbar.ejs")%></header>
+    <h2>Visitas | Generar rutas</h2>
     <section class="down_table">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-md-8">
-                    <form action="/prueba/formulario" method="POST">
-                        <table class="table table-bordered table-hover">
-                            <thead class="table-active">
-                                <tr>
-                                    <td>N° visita</td>
-                                    <td>Dirección</td>
-                                    <td>Comuna</td>
-                                    <td>Cel. Jefe de hogar</td>
-                                    <td>Estado</td>
-                                    <td>Formularios</td>
-                                    <td>Gestionar</td>
-                                    <td>Seleccionar</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% for(i of list_visi){ %>
-                                    <tr class="table-light">
-                                        <td class="td_table">
-                                            <%= i['id'] %>
-                                        </td>
-                                        <td class="td_table">
-                                            <%= i['direccion'] %>
-                                        </td>
-                                        <td class="td_table">
-                                            <%= i['comuna'] %>
-                                        </td>
-                                        <td class="td_table">
-                                            <%= i['celular'] %>
-                                        </td>
-                                        <td class="td_table">
-                                            <%= i['estado'] %>
-                                        </td>
-                                        <td class="td_table">
-                                            <a href="/family_comp/<%= i['id_hogar'] %>">Iniciar visita</a>
-                                        </td>
-                                        <td>
-                                            <a href="/edit_visit/<%= i['id_hogar'] %>">Editar</a>
-                                        </td>
-                                        <td class="td_table">
-                                            <input type="checkbox" id="cbox1" value="<%= i['direccion'] %>" name="direccion">
-                                        </td>
-                                    </tr>    
-                                <% } %>
-                            </tbody>
-                        </table>
-                        <button type="submit" class="btn_color">Generar ruta</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+      <form action="/prueba/formulario" method="POST">
+        <table class="table table-bordered table-hover">
+          <thead class="table-active">
+            <tr>
+              <td>N° visita</td>
+              <td>Dirección</td>
+              <td>Comuna</td>
+              <td>Cel. Jefe de hogar</td>
+              <td>Estado</td>
+              <td>Formularios</td>
+              <td>Gestionar</td>
+              <td>Seleccionar</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(i of list_visi){ %>
+            <tr>
+              <td><%= i['id'] %></td>
+              <td><%= i['direccion'] %></td>
+              <td><%= i['comuna'] %></td>
+              <td><%= i['celular'] %></td>
+              <td><%= i['estado'] %></td>
+              <td>
+                <a href="/family_comp/<%= i['id_hogar'] %>">Iniciar visita</a>
+              </td>
+              <td>
+                <a href="/edit_visit/<%= i['id_hogar'] %>">Editar</a>
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  id="cbox1"
+                  value="<%= i['direccion'] %>"
+                  name="direccion"
+                />
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <button class="decor_button" type="submit">Generar ruta</button>
+      </form>
     </section>
-</body>
-
+  </body>
 </html>

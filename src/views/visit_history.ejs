@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio</title>
-  <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/navbar.css">
 </head>
@@ -24,8 +23,8 @@
     </div>
 
     <div class="center4">
-      <table class="table table-bordered table-hover">
-        <thead class="table-active">
+      <table>
+        <thead>
           <tr>
             <td>N° visita</td>
             <td>Jefe de hogar</td>
@@ -38,24 +37,24 @@
         </thead>
         <tbody>
             <% for(i of list_visi_usu){ %>
-              <tr class="table-light">
-                <td class="td_table">
+              <tr >
+                <td >
                   <%= i['id'] %>
                 </td>
-                <td class="td_table">
+                <td >
                   <%= i['nombre'] %>
                     <%= i['apellidos'] %>
                 </td>
-                <td class="td_table">
+                <td >
                   <%= i['direccion'] %>
                 </td>
-                <td class="td_table">
+                <td>
                   <%= i['comuna'] %>
                 </td>
-                <td class="td_table">
+                <td>
                   <%= i['celular'] %>
                 </td>
-                <td class="td_table">
+                <td>
                   <%= i['estado'] %>
                 </td>
                 <td>
