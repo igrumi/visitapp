@@ -14,10 +14,15 @@
                 <% } %>
                 <% if (typeof rol !== 'undefined' && rol === 'admin') { %>
                     <li class="nav__item">
-                        <a href="/register" class="nav__link">Gestionar usuarios</a>
+                        <a href="/users" class="nav__link">Gestionar usuarios</a>
                     </li>
                 <% } %>
-                <% if (typeof rol !== 'undefined') { %>
+                <% if (typeof rol !== 'undefined' && rol === 'admin') { %>
+                    <li class="nav__item">
+                        <a href="/reports" class="nav__link">Reportes</a>
+                    </li>
+                <% } %>
+                <% if (typeof rol !== 'undefined' && rol === 'usuario') { %>
                 <li class="nav__item">
                     <a href="/" class="nav__link">Inicio</a>
                 </li>

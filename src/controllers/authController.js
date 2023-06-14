@@ -94,6 +94,7 @@ export const loginUser = async (req, res) => {
 export const isAuthenticated = async (req, res, next) => {
     if(req.cookies.jwt) {
         try {
+            
             const decode = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
             connection.query('SELECT * FROM usuario WHERE rut = ?', [decode.rut], (error, results) => {
                 if(!results) {
