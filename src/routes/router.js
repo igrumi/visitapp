@@ -25,6 +25,7 @@ import { spiritual_needs } from "../controllers/spiritual_needs.js";
 import { spiritual_needs_render } from "../controllers/spiritual_needs.js";
 import { visit_history } from "../controllers/visit_history.js";
 import { general_situation } from "../controllers/general_situation.js";
+import { report } from "../controllers/report.js";
 import { login } from "../controllers/login.js";
 import { registerUser } from "../controllers/authController.js";
 import { loginUser } from "../controllers/authController.js"
@@ -54,6 +55,7 @@ export const router = express.Router();
 router.get('/', isAuthenticated, index);
 
 router.get('/general_situation', isAuthenticated, general_situation);
+router.get('/report', isAuthenticated, report);
 
 router.get('/home_situation', isAuthenticated, home_situation);
 router.get('/visits', isAuthenticated, visits);

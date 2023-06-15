@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
+  <%- include("components/navbar.ejs")%>
+
+    <div class="center5">
+      <h2>Historial</h2>
+      <form action="/visit_history" method="POST">
+        <label for="date_ini">Desde: <input type="date" name="date_ini" id="date_ini"></label>
+        <label for="date_end">Hasta: <input type="date" name="date_end" id="date_end"></label>
+        <button type="submit">Filtrar</button>
+      </form>
+    </div>
+
+    <div class="center4">
+
+    </div>
+</body>
+
+</html>

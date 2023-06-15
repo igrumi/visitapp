@@ -29,6 +29,11 @@
                 <% } %>
                 <% if (typeof rol !== 'undefined' && rol === 'usuario') { %>
                     <li class="nav__item nav__item--msc">
+                            <a href="/report" class="nav__link">Reportes</a>
+                    </li>
+                <% } %>
+                <% if (typeof rol !== 'undefined' && rol === 'usuario') { %>
+                    <li class="nav__item nav__item--msc">
                             <a href="/visit_history" class="nav__link">Historial visitas</a>
                     </li>
                 <% } %>
