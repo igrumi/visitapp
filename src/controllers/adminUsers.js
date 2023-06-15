@@ -4,6 +4,8 @@ import bcryptjs  from 'bcryptjs';
 
 // Obtener la lista de usuarios
 export const getUsuarios = (req, res) => {
+  const { rol } = req.user;
+
   const queryActivos = "SELECT * FROM USUARIO WHERE estado = 1 ORDER BY rol"; // Obtener usuarios activos
   const queryInactivos = "SELECT * FROM USUARIO WHERE estado = 2 ORDER BY rol"; // Obtener usuarios inactivos
 
@@ -19,7 +21,7 @@ export const getUsuarios = (req, res) => {
         return res.status(500).send("Error al obtener la lista de usuarios inactivos");
       }
 
-      res.render("users", { usuariosActivos, usuariosInactivos });
+      res.render("users", { rol, usuariosActivos, usuariosInactivos });
     });
   });
 };
@@ -54,7 +56,7 @@ export const mostrarFormularioEdicionInactive = (req, res) => {
       return res.status(404).send("Usuario no encontrado");
     }
     const usuario = results[0];
-    res.render("edit_users", { usuario });
+    res.render("edit_users_inactive", { usuario });
   });
 };
 
@@ -74,11 +76,12 @@ export const agregarUsuario = async (req, res) => {
 };
 
 // Editar un usuario existente
-export const editarUsuario = (req, res) => {
+export const editarUsuario = async (req, res) => {
   const { rut } = req.params;
   const { nombre, correo, contrasena, rol } = req.body;
+  const passwordHash = await bcryptjs.hash(contrasena, 8);
   const query = "UPDATE USUARIO SET nombre = ?, correo = ?, contrasena = ?, rol = ? WHERE rut = ? AND estado = 1"; // Actualizar usuario activo por rut
-  connection.query(query, [nombre, correo, contrasena, rol, rut], (err, results) => {
+  connection.query(query, [nombre, correo, passwordHash, rol, rut], (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).send("Error al editar el usuario");

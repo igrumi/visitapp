@@ -12,49 +12,183 @@
   <body>
     <header><%- include("components/navbar.ejs")%></header>
     <h2>Visitas | Generar rutas</h2>
-    <section class="down_table">
-      <form action="/prueba/formulario" method="POST">
-        <table class="table table-bordered table-hover">
-          <thead class="table-active">
-            <tr>
-              <td>N° visita</td>
-              <td>Dirección</td>
-              <td>Comuna</td>
-              <td>Cel. Jefe de hogar</td>
-              <td>Estado</td>
-              <td>Formularios</td>
-              <td>Gestionar</td>
-              <td>Seleccionar</td>
-            </tr>
-          </thead>
-          <tbody>
-            <% for(i of list_visi){ %>
-            <tr>
-              <td><%= i['id'] %></td>
-              <td><%= i['direccion'] %></td>
-              <td><%= i['comuna'] %></td>
-              <td><%= i['celular'] %></td>
-              <td><%= i['estado'] %></td>
-              <td>
-                <a href="/family_comp/<%= i['id_hogar'] %>">Iniciar visita</a>
-              </td>
-              <td>
-                <a href="/edit_visit/<%= i['id_hogar'] %>">Editar</a>
-              </td>
-              <td>
-                <input
-                  type="checkbox"
-                  id="cbox1"
-                  value="<%= i['direccion'] %>"
-                  name="direccion"
-                />
-              </td>
-            </tr>
-            <% } %>
-          </tbody>
-        </table>
+    <form id="formulario-clientes" action="/prueba/formulario" method="POST">
+      <table class="table table-bordered table-hover">
+        <thead class="table-active">
+          <tr>
+            <td>N° visita</td>
+            <td>Dirección</td>
+            <td>Comuna</td>
+            <td>Cel. Jefe de hogar</td>
+            <td>Estado</td>
+            <td>Formularios</td>
+            <td>Gestionar</td>
+            <td>Seleccionar</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(i of list_visi){ %>
+          <tr>
+            <td id="id" name="id"><%= i['id'] %></td>
+            <td id="direccion" name="direccion"><%= i['direccion'] %></td>
+            <td id="comuna" name="comuna"><%= i['comuna'] %></td>
+            <td id="celular" name="celular"><%= i['celular'] %></td>
+            <td id="estado" name="estado"><%= i['estado'] %></td>
+            <td>
+              <a href="/family_comp/<%= i['id_hogar'] %>">Iniciar visita</a>
+            </td>
+            <td>
+              <a href="/edit_visit/<%= i['id_hogar'] %>">Editar</a>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                id="cbox1"
+                value="<%= i['direccion'] %>"
+                name="direccion"
+              />
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <div class="router_button">
         <button class="decor_button" type="submit">Generar ruta</button>
-      </form>
-    </section>
+        
+      </div>
+    </form>
+    <div class="router_button">
+      <button style="display: none;" id="printMap" class="decor_button" onclick="imprimirDivMapa()">
+        Imprimir Mapa
+      </button>
+    </div>
+
+    <div id="mapa-container2" class="container_mapa">
+      <div id="mapa-container" class="mapa"></div>
+      <h1>Ruta óptima</h1>
+    </div>
+    
+    <input type="hidden" name="latitud" id="latitud" />
+    <input type="hidden" name="longitud" id="longitud" />
+
+    <script>
+      // Reemplaza 'TU_CLAVE_DE_API' con tu propia clave de API
+      const apiKey = "AIzaSyAKXCJlMMBtXyl5RnBM2WwjprlyCS4UuL8";
+
+      // Verificar si el navegador soporta la geolocalización
+      if ("geolocation" in navigator) {
+        // Obtener la posición actual del usuario
+        navigator.geolocation.getCurrentPosition(
+          successCallback,
+          errorCallback
+        );
+      } else {
+        console.log("La geolocalización no es soportada por este navegador.");
+      }
+
+      // Función de devolución de llamada en caso de éxito
+      function successCallback(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Asignar los valores de latitud y longitud a los campos de entrada ocultos
+        document.getElementById("latitud").value = latitude;
+        document.getElementById("longitud").value = longitude;
+
+        // Realizar una solicitud a la API de Google Maps para obtener la dirección a partir de las coordenadas
+        fetch(
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.results.length > 0) {
+              const address = data.results[0].formatted_address;
+              console.log("Tu ubicación actual es: " + address);
+            } else {
+              console.log("No se pudo obtener la dirección.");
+            }
+          })
+          .catch((error) => {
+            console.log("Error al obtener la dirección:", error);
+          });
+      }
+
+      // Función de devolución de llamada en caso de error
+      function errorCallback(error) {
+        console.log("Error al obtener la ubicación:", error.message);
+      }
+      document
+        .getElementById("formulario-clientes")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Evita que se envíe el formulario
+
+          const formulario = event.target;
+          const direcciones = obtenerDireccionesSeleccionadas(formulario);
+
+          const contenedorMapa = document.getElementById("mapa-container");
+          const mapa = document.getElementById("mapa-container2");
+          mapa.style.display = "block";
+          const print = document.getElementById("printMap");
+          print.style.display = "block";
+          contenedorMapa.innerHTML = generarIframeMapa(direcciones);
+          
+        });
+
+      function obtenerDireccionesSeleccionadas(formulario) {
+        // Aquí puedes obtener las direcciones seleccionadas del formulario
+        // Utiliza el DOM para acceder a los campos de dirección de cada cliente y extraer los valores
+        // Retorna las direcciones como un arreglo
+
+        // Ejemplo ficticio de obtención de direcciones
+        const direcciones = [];
+        const camposDireccion =
+          formulario.querySelectorAll('[name="direccion"]');
+        camposDireccion.forEach(function (campo) {
+          if (campo.value && campo.checked) {
+            direcciones.push(campo.value);
+          }
+        });
+
+        return direcciones;
+      }
+
+      function generarIframeMapa(direcciones) {
+        // Genera el código HTML para el iframe del mapa de Google Maps con las direcciones proporcionadas
+        // Puedes utilizar los datos de las direcciones para construir la URL del mapa
+        // Obtener los valores de latitud y longitud desde los campos de entrada ocultos
+        const latitud = document.getElementById("latitud").value;
+        const longitud = document.getElementById("longitud").value;
+
+        // Ejemplo ficticio de generación de iframe
+        const urlMapa =
+          `https://www.google.com/maps/embed/v1/directions?key=${apiKey}&origin=${latitud},${longitud}&destination=` +
+          encodeURIComponent(direcciones[0]) +
+          "&waypoints=" +
+          encodeURIComponent(direcciones.join("/"));
+        console.log("Tu urlMapa actual es: " + urlMapa);
+        const iframeHTML =
+          '<iframe src="' +
+          urlMapa +
+          '" width="600" height="450" style="border:0" allowfullscreen></iframe>';
+
+        return iframeHTML;
+      }
+      function imprimirMapa() {
+        // Ejecutar la función de impresión del navegador
+        window.print();
+      }
+      function imprimirDivMapa() {
+        const divMapa = document.getElementById("mapa-container");
+        imprimirElemento(divMapa);
+      }
+
+      function imprimirElemento(elemento) {
+        const ventanaImpresion = window.open("", "_blank");
+        ventanaImpresion.document.write(elemento.outerHTML);
+        ventanaImpresion.document.close();
+        ventanaImpresion.print();
+        ventanaImpresion.close();
+      }
+    </script>
   </body>
 </html>

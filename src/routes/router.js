@@ -25,6 +25,7 @@ import { spiritual_needs } from "../controllers/spiritual_needs.js";
 import { spiritual_needs_render } from "../controllers/spiritual_needs.js";
 import { visit_history } from "../controllers/visit_history.js";
 import { general_situation } from "../controllers/general_situation.js";
+import { report } from "../controllers/report.js";
 import { login } from "../controllers/login.js";
 import { registerUser } from "../controllers/authController.js";
 import { loginUser } from "../controllers/authController.js"
@@ -42,6 +43,7 @@ export const router = express.Router();
 router.get('/', isAuthenticated, index);
 
 router.get('/general_situation', isAuthenticated, general_situation);
+router.get('/report', isAuthenticated, report);
 
 router.get('/home_situation', isAuthenticated, home_situation);
 router.get('/visits', isAuthenticated, visits);
@@ -108,13 +110,14 @@ router.get('/edit_visit/:homeId', isAuthenticated, edit_visit_render);
 router.post('/edit_visit/:homeId', isAuthenticated, edit_visit);
 // GENERAR RUTA DE VISITA GOOGLE MAPS
 router.post("/prueba/formulario", (req, res) => {
-  const { direccion } = req.body;
-  const direOfi = 'Padre Alonso de Ovalle 1586';
-  if (!direccion){
-    return res.redirect('/visit_available')
-  }
-  //res.redirect(`https://www.google.com/maps/dir/${direOfi}/${direccion.join('/')}`);
-  res.redirect(`https://www.google.com/maps/dir/${direOfi}/${typeof direccion !== 'string' ? direccion.join('/') : ''+direccion}`);
+  //const { direccion } = req.body;
+  //const direOfi = 'Padre Alonso de Ovalle 1586';
+  //if (!direccion){
+  //  return res.redirect('/visit_available')
+  //}
+  ////res.redirect(`https://www.google.com/maps/dir/${direOfi}/${direccion.join('/')}`);
+  //res.redirect(`https://www.google.com/maps/dir/${direOfi}/${typeof direccion !== 'string' ? direccion.join('/') : ''+direccion}`);
+  res.render('visit_available.ejs');
 })
 router.get("/export", isAuthenticated, exportation);
 router.post("/export", isAuthenticated, exporting)
