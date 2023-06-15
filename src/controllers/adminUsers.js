@@ -4,6 +4,8 @@ import bcryptjs  from 'bcryptjs';
 
 // Obtener la lista de usuarios
 export const getUsuarios = (req, res) => {
+  const { rol } = req.user;
+
   const queryActivos = "SELECT * FROM USUARIO WHERE estado = 1 ORDER BY rol"; // Obtener usuarios activos
   const queryInactivos = "SELECT * FROM USUARIO WHERE estado = 2 ORDER BY rol"; // Obtener usuarios inactivos
 
@@ -19,7 +21,7 @@ export const getUsuarios = (req, res) => {
         return res.status(500).send("Error al obtener la lista de usuarios inactivos");
       }
 
-      res.render("users", { usuariosActivos, usuariosInactivos });
+      res.render("users", { rol, usuariosActivos, usuariosInactivos });
     });
   });
 };
