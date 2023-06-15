@@ -57,6 +57,8 @@
       </form>
       <div id="mapa-container"></div>
       <div id="map"></div>
+      <input type="hidden" name="latitud" id="latitud">
+      <input type="hidden" name="longitud" id="longitud">
 
       <script>
         // Reemplaza 'TU_CLAVE_DE_API' con tu propia clave de API
@@ -74,6 +76,10 @@
           function successCallback(position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
+
+            // Asignar los valores de latitud y longitud a los campos de entrada ocultos
+            document.getElementById('latitud').value = latitude;
+            document.getElementById('longitud').value = longitude;
 
             // Realizar una solicitud a la API de Google Maps para obtener la dirección a partir de las coordenadas
             fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`)
@@ -125,10 +131,12 @@
         function generarIframeMapa(direcciones) {
           // Genera el código HTML para el iframe del mapa de Google Maps con las direcciones proporcionadas
           // Puedes utilizar los datos de las direcciones para construir la URL del mapa
-
+          // Obtener los valores de latitud y longitud desde los campos de entrada ocultos
+          const latitud = document.getElementById('latitud').value;
+          const longitud = document.getElementById('longitud').value;
             
           // Ejemplo ficticio de generación de iframe
-          const urlMapa = 'https://www.google.com/maps/embed/v1/directions?key=AIzaSyAKXCJlMMBtXyl5RnBM2WwjprlyCS4UuL8&origin='+ address +'&destination='+ direcciones[0]+'&waypoints=' + direcciones.join('/');
+          const urlMapa = 'https://www.google.com/maps/embed/v1/directions?key=AIzaSyAKXCJlMMBtXyl5RnBM2WwjprlyCS4UuL8&origin='+ latitud +',' + longitud + '&destination='+ direcciones[0]+'&waypoints=' + direcciones.join('/');
           const iframeHTML = '<iframe src="' + urlMapa + '" width="600" height="450" style="border:0" allowfullscreen></iframe>';
 
           return iframeHTML;
