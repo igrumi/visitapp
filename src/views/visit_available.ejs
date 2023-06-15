@@ -136,7 +136,8 @@
           const longitud = document.getElementById('longitud').value;
             
           // Ejemplo ficticio de generación de iframe
-          const urlMapa = `https://www.google.com/maps/embed/v1/directions?key=${apiKey}&origin=${latitud},${longitud}&destination=`+ direcciones[0]+'&waypoints=' + direcciones.join('/');
+          const urlMapa = `https://www.google.com/maps/embed/v1/directions?key=${apiKey}&origin=${latitud},${longitud}&destination=`+ encodeURIComponent(direcciones[0])+'&waypoints=' + encodeURIComponent(direcciones.join('/'));
+          console.log('Tu urlMapa actual es: ' + urlMapa);
           const iframeHTML = '<iframe src="' + urlMapa + '" width="600" height="450" style="border:0" allowfullscreen></iframe>';
 
           return iframeHTML;
