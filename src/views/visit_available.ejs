@@ -13,7 +13,7 @@
     <header><%- include("components/navbar.ejs")%></header>
     <h2>Visitas | Generar rutas</h2>
     <section class="down_table">
-      <form action="/prueba/formulario" method="POST">
+      <form id="formulario-clientes" action="/prueba/formulario" method="POST">
         <table class="table table-bordered table-hover">
           <thead class="table-active">
             <tr>
@@ -30,11 +30,11 @@
           <tbody>
             <% for(i of list_visi){ %>
             <tr>
-              <td><%= i['id'] %></td>
-              <td><%= i['direccion'] %></td>
-              <td><%= i['comuna'] %></td>
-              <td><%= i['celular'] %></td>
-              <td><%= i['estado'] %></td>
+              <td id="id" name="id"><%= i['id'] %></td>
+              <td id="direccion" name="direccion"><%= i['direccion'] %></td>
+              <td id="comuna" name="comuna"><%= i['comuna'] %></td>
+              <td id="celular" name="celular"><%= i['celular'] %></td>
+              <td id="estado" name="estado"><%= i['estado'] %></td>
               <td>
                 <a href="/family_comp/<%= i['id_hogar'] %>">Iniciar visita</a>
               </td>
@@ -55,6 +55,50 @@
         </table>
         <button class="decor_button" type="submit">Generar ruta</button>
       </form>
+      <div id="mapa-container"></div>
+      <div id="map"></div>
+
+      <script>
+        document.getElementById('formulario-clientes').addEventListener('submit', function(event) {
+          event.preventDefault(); // Evita que se envíe el formulario
+
+          const formulario = event.target;
+          const direcciones = obtenerDireccionesSeleccionadas(formulario);
+
+          const contenedorMapa = document.getElementById('mapa-container');
+          contenedorMapa.innerHTML = generarIframeMapa(direcciones);
+        });
+
+        function obtenerDireccionesSeleccionadas(formulario) {
+          // Aquí puedes obtener las direcciones seleccionadas del formulario
+          // Utiliza el DOM para acceder a los campos de dirección de cada cliente y extraer los valores
+          // Retorna las direcciones como un arreglo
+
+          // Ejemplo ficticio de obtención de direcciones
+          const direcciones = [];
+          const camposDireccion = formulario.querySelectorAll('[name="direccion"]');
+          camposDireccion.forEach(function(campo) {
+            if (campo.value){
+              direcciones.push(campo.value);
+            }
+          });
+
+          return direcciones;
+        }
+
+        function generarIframeMapa(direcciones) {
+          // Genera el código HTML para el iframe del mapa de Google Maps con las direcciones proporcionadas
+          // Puedes utilizar los datos de las direcciones para construir la URL del mapa
+
+          // Ejemplo ficticio de generación de iframe
+          const urlMapa = 'https://www.google.com/maps/embed/v1/directions?key=AIzaSyAKXCJlMMBtXyl5RnBM2WwjprlyCS4UuL8&origin='+ encodeURIComponent('Padre Alonso de Ovalle 1586')+'&destination='+ direcciones[0]+'&waypoints=' + direcciones.join('/');
+          const iframeHTML = '<iframe src="' + urlMapa + '" width="600" height="450" style="border:0" allowfullscreen></iframe>';
+
+          return iframeHTML;
+        }
+      </script>
+      
+      
     </section>
   </body>
 </html>

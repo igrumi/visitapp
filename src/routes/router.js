@@ -120,13 +120,14 @@ router.get('/edit_visit/:homeId', isAuthenticated, edit_visit_render);
 router.post('/edit_visit/:homeId', isAuthenticated, edit_visit);
 // GENERAR RUTA DE VISITA GOOGLE MAPS
 router.post("/prueba/formulario", (req, res) => {
-  const { direccion } = req.body;
-  const direOfi = 'Padre Alonso de Ovalle 1586';
-  if (!direccion){
-    return res.redirect('/visit_available')
-  }
-  //res.redirect(`https://www.google.com/maps/dir/${direOfi}/${direccion.join('/')}`);
-  res.redirect(`https://www.google.com/maps/dir/${direOfi}/${typeof direccion !== 'string' ? direccion.join('/') : ''+direccion}`);
+  //const { direccion } = req.body;
+  //const direOfi = 'Padre Alonso de Ovalle 1586';
+  //if (!direccion){
+  //  return res.redirect('/visit_available')
+  //}
+  ////res.redirect(`https://www.google.com/maps/dir/${direOfi}/${direccion.join('/')}`);
+  //res.redirect(`https://www.google.com/maps/dir/${direOfi}/${typeof direccion !== 'string' ? direccion.join('/') : ''+direccion}`);
+  res.render('visit_available.ejs');
 })
 
 // RUTAS MANTENEDOR USUARIOS
