@@ -56,7 +56,7 @@
         <button class="decor_button" type="submit">Generar ruta</button>
       </form>
       <div id="mapa-container"></div>
-      <div id="map"></div>
+      <button class="decor_button" onclick="imprimirDivMapa()">Imprimir Mapa</button>
       <input type="hidden" name="latitud" id="latitud">
       <input type="hidden" name="longitud" id="longitud">
 
@@ -141,6 +141,24 @@
 
           return iframeHTML;
         }
+        function imprimirMapa() {
+          // Ejecutar la función de impresión del navegador
+          window.print();
+        }
+        function imprimirDivMapa() {
+          const divMapa = document.getElementById('mapa-container');
+          imprimirElemento(divMapa);
+        }
+
+        function imprimirElemento(elemento) {
+          const ventanaImpresion = window.open('', '_blank');
+          ventanaImpresion.document.write(elemento.outerHTML);
+          ventanaImpresion.document.close();
+          ventanaImpresion.print();
+          ventanaImpresion.close();
+        }
+
+
       </script>
       
       
