@@ -349,7 +349,8 @@ input[type="submit"]:hover,
     margin: auto;
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 3rem;
+    margin-top: 5rem;
+    padding: 1rem;
     width: auto;
     height: auto;
     border-radius: .5rem;
