@@ -6,14 +6,14 @@ export const add_family_member = (req, res) => {
 
     const { i_name, i_last_name, i_rut, i_birthdate,
         i_age, i_kinship, i_gender,
-        i_marital_status, i_ed_level, i_email, i_phone } = req.body;
+        i_marital_status, i_ed_level, i_email, i_phone, i_nacionalidad } = req.body;
 
     connection.query('INSERT INTO \
         integrante(rut, nombre, parentesco, edad, sexo, \
-        nivel_educacional, apellidos,  fecha_nacimiento,  estado_civil, celular, correo, id_hogar) \
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
+        nivel_educacional, apellidos,  fecha_nacimiento,  estado_civil, celular, correo, id_hogar, nacionalidad) \
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
         [Number(i_rut), i_name, i_kinship, i_age, i_gender, i_ed_level, i_last_name, new Date(i_birthdate),
-            i_marital_status, Number(i_phone), i_email, Number(homeId)
+            i_marital_status, Number(i_phone), i_email, Number(homeId), i_nacionalidad
         ]
     )
 

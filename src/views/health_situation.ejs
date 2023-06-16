@@ -18,8 +18,17 @@
     <div class="center">
         <h2>Situación Salud</h2>
         <form action="/health_situation/<%= homeId %>/<%= rutIntegrante %>" method="POST">
-            <label for="i_disease">Tipo enfermedad: <input type="text" name="i_disease" id="i_disease"></label>
-            <label for="i_disability">Discapacidad: <input type="text" name="i_disability" id="i_disability"></label>
+            <label for=""></label>
+            <select name="i_disability" id="i_disability">
+                <option value="">Seleccionar...</option>
+                <option value="tea">TEA</option>
+                <option value="visual">Visual</option>
+                <option value="auditiva">Auditiva</option>
+                <option value="motora">Motora</option>
+                <option value="intelectual">Intelectual</option>
+                <option value="psicosocial">Psicosocial</option>
+                <option value="otra">Otra</option>
+              </select>
             <label for="i_observation">Observacion: <input type="text" name="i_observation" id="i_observation"></label>
             <button type="submit" id="register-btn">Siguiente</button>
         </form>

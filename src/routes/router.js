@@ -16,6 +16,7 @@ import { menu_add_visit } from "../controllers/menu_add_visit.js";
 import { state_benefits } from "../controllers/state_benefits.js";
 import { state_benefits_render } from "../controllers/state_benefits.js";
 import { bills } from "../controllers/bills.js";
+import { reports } from "../controllers/reports.js";
 import { bills_render } from "../controllers/bills.js";
 import { visits } from "../controllers/visits.js";
 import { home_situation } from "../controllers/home_situation.js";
@@ -58,6 +59,7 @@ router.get('/general_situation', isAuthenticated, general_situation);
 router.get('/home_situation', isAuthenticated, home_situation);
 router.get('/visits', isAuthenticated, visits);
 router.get('/home_to_visit', isAuthenticated, home_to_visit);
+router.get('/reports', isAuthenticated, reports);
 
 router.get("/menu_add_visit",  isAuthenticated, menu_add_visit);
 router.get("/sit_familiar", isAuthenticated, sit_familiar);

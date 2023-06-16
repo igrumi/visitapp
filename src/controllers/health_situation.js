@@ -3,10 +3,10 @@ import { connection } from "../database/db.js";
 export const health_situation = (req, res) => {
     
     const { homeId, rutIntegrante} = req.params;
-    const { i_disease, i_disability, i_observation} = req.body;
+    const { i_disability, i_observation} = req.body;
 
-    connection.query('INSERT INTO situacion_salud ( tipo_enfermedad, discapacidad, observacion, rut_integrante)\
-                    VALUES(?,?,?,?)',[i_disease, i_disability, i_observation, Number(rutIntegrante)]
+    connection.query('INSERT INTO situacion_salud (discapacidad, observacion, rut_integrante)\
+                    VALUES(?,?,?)',[i_disability, i_observation, Number(rutIntegrante)]
     );
 
     return res.redirect(`/family_comp/${homeId}`)
