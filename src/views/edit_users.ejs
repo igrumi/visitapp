@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/navbar.css">
-  </head>
-  
-  <body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+</head>
+
+<body>
   <h1>Editar Usuario</h1>
 
   <form action="/users/edit/<%= usuario.rut %>" method="POST">
-    <label for="rut">RUT:</label>
-    <input type="text" name="rut" value="<%= usuario.rut %>" required>
-
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" value="<%= usuario.nombre %>" required>
-
-    <label for="correo">Correo:</label>
-    <input type="email" name="correo" value="<%= usuario.correo %>" required>
-
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" name="contrasena" value="<%= usuario.contrasena %>" required>
-
-    <label for="rol">Rol:</label>
-    <input type="text" name="rol" value="<%= usuario.rol %>" required>
-
-    <button type="submit">Guardar Usuario</button>
+    <table>
+      <thead>
+        <tr>
+          <th>RUT</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Contraseña</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" name="nrut" value="<%= usuario.rut %>" required>
+          </td>
+          <td>
+            <input type="text" name="nombre" value="<%= usuario.nombre %>" required>
+          </td>
+          <td>
+            <input type="email" name="correo" value="<%= usuario.correo %>" required>
+          </td>
+          <td>
+            <input type="password" name="contrasena" value="" required>
+            <label for="">Por favor ingrese la contraseña</label>
+          </td>
+          <td>
+            <input type="text" name="rol" value="<%= usuario.rol %>" required>
+          </td>
+          <td>
+            <button type="submit">Guardar Usuario</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </form>
+  <div class="centerdiv">
+    <a href="/users"><button type="submit" id="register-btn">Volver</button></a>
+  </div>
+
 </body>
+
 </html>

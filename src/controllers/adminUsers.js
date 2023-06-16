@@ -1,5 +1,5 @@
 import { connection } from "../database/db.js";
-import bcryptjs  from 'bcryptjs';
+import bcryptjs from 'bcryptjs';
 
 
 // Obtener la lista de usuarios
@@ -66,7 +66,7 @@ export const agregarUsuario = async (req, res) => {
   const passwordHash = await bcryptjs.hash(contrasena, 8);
 
   const query = "INSERT INTO USUARIO (rut, nombre, correo, contrasena) VALUES (?, ?, ?, ?)"; // Insertar usuario con estado activo
-  connection.query("INSERT INTO USUARIO SET ?", {rut, nombre, correo, contrasena:passwordHash, rol}, (err, results) => {
+  connection.query("INSERT INTO USUARIO SET ?", { rut, nombre, correo, contrasena: passwordHash, rol }, (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).send("Error al agregar el usuario");
@@ -78,10 +78,10 @@ export const agregarUsuario = async (req, res) => {
 // Editar un usuario existente
 export const editarUsuario = async (req, res) => {
   const { rut } = req.params;
-  const { nombre, correo, contrasena, rol } = req.body;
+  const { nrut, nombre, correo, contrasena, rol } = req.body;
   const passwordHash = await bcryptjs.hash(contrasena, 8);
-  const query = "UPDATE USUARIO SET nombre = ?, correo = ?, contrasena = ?, rol = ? WHERE rut = ? AND estado = 1"; // Actualizar usuario activo por rut
-  connection.query(query, [nombre, correo, passwordHash, rol, rut], (err, results) => {
+  const query = "UPDATE USUARIO SET rut = ?, nombre = ?, correo = ?, contrasena = ?, rol = ? WHERE rut = ? AND estado = 1"; // Actualizar usuario activo por rut
+  connection.query(query, [nrut, nombre, correo, passwordHash, rol, rut], (err, results) => {
     if (err) {
       console.error(err);
       return res.status(500).send("Error al editar el usuario");
@@ -99,7 +99,7 @@ export const editarUsuarioInactive = (req, res) => {
       console.error(err);
       return res.status(500).send("Error al editar el usuario");
     }
-    res.redirect("/users");
+    res.redirect("/users")
   });
 };
 
