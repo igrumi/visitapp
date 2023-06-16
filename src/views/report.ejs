@@ -5,26 +5,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/navbar.css">
+  <title>Wecome</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
-  <%- include("components/navbar.ejs")%>
-
-    <div class="center5">
-      <h2>Historial</h2>
-      <form action="/visit_history" method="POST">
-        <label for="date_ini">Desde: <input type="date" name="date_ini" id="date_ini"></label>
-        <label for="date_end">Hasta: <input type="date" name="date_end" id="date_end"></label>
-        <button type="submit">Filtrar</button>
-      </form>
+  <header class="header">
+    <h1 class="title">Welcome to Node.js web skeleton app!</h1>
+  </header>
+  <main class="main">
+    <div class="img-container">
+      <img class="logo" src="/assets/nodejs-icon.svg" alt="nodejs logo">
     </div>
+    <code class="code">Your app is running successfully!</code>
 
-    <div class="center4">
+    <button id="download">Download</button>
+  </main>
 
-    </div>
+  <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+  <script src="/js/download.js"></script>
 </body>
 
 </html>

@@ -1,8 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
 
 body {
-    background-color: #ffb514f0;
+    background-image:url(https://media.discordapp.net/attachments/861022104656543765/1119080324786311289/bgfoto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
+
+
 
 h1 {
     margin: auto;
