@@ -36,6 +36,7 @@ import { addVisitaForm } from '../controllers/add_visita.js';
 import { visit_available } from '../controllers/visit_available.js';
 import { edit_visit } from '../controllers/edit_visit.js';
 import { edit_visit_render } from '../controllers/edit_visit.js';
+import { exportation, exporting } from "../controllers/exportation.js"
 import {
   getUsuarios,
   agregarUsuario,
@@ -158,3 +159,6 @@ router.get("/users/enable/:rut", isAuthenticated, checkRoleAuth('admin'), mostra
 // Ruta para deshabilitación/habilitación de un usuario
 router.post("/users/disable/:rut", isAuthenticated, checkRoleAuth('admin'), disableUser);
 router.post("/users/enable/:rut", isAuthenticated, checkRoleAuth('admin'), enableUser);
+
+router.get("/export", isAuthenticated, exportation);
+router.post("/export", isAuthenticated, exporting);
